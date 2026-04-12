@@ -136,10 +136,10 @@ footer{background:#1a1a2e;padding:48px 5% 32px;border-top:1px solid #ffffff10}
 .footer-links a{font-size:13px;color:#555;transition:.15s}
 .footer-links a:hover{color:#fff}
 .footer-copy{font-size:13px;color:#555}
-.footer-verify{display:flex;flex-direction:column;align-items:flex-start;gap:10px;font-size:13px;color:#7f8594;line-height:1.6}
+.footer-verify{display:flex;flex-direction:column;align-items:flex-end;gap:10px;font-size:13px;color:#7f8594;line-height:1.6;text-align:right}
 .footer-verify a{color:#cfd8ee;text-decoration:underline;text-underline-offset:3px}
-.footer-verify-logos{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-.footer-verify-logos img{height:34px;width:auto;display:block;opacity:.92}
+.footer-verify-logos{display:flex;align-items:center;justify-content:flex-end;gap:14px;flex-wrap:wrap}
+.footer-verify-logos img{height:38px;width:auto;display:block;opacity:.92}
 .module-partner-logo{height:22px;width:auto;display:block}
 
 @media(max-width:1024px){
@@ -426,18 +426,16 @@ footer{background:#1a1a2e;padding:48px 5% 32px;border-top:1px solid #ffffff10}
       <a href="index.html#contacto">Contacto</a>
       <a href="https://portal.produ.cl" target="_blank">Portal</a>
     </div>
-    <div>
+    <div class="footer-verify">
       <p class="footer-copy">© 2026 Produ. Todos los derechos reservados.</p>
-      <div class="footer-verify">
-        <span>
+      <span>
         <a target="_blank" href="https://www.comparasoftware.cl/produ-app">Produ App</a>
         se encuentra verificado como
         <a target="_blank" href="https://www.comparasoftware.cl/saas-solutions">Soluciones SaaS en Chile</a>
-        </span>
-        <div class="footer-verify-logos">
-          <img src="assets/chile-partner.png" alt="Chile partner" />
-          <img src="assets/comparasoftware-verified.svg" alt="ComparaSoftware verificado 2025" />
-        </div>
+      </span>
+      <div class="footer-verify-logos">
+        <img src="assets/chile-partner.png" alt="Chile partner" />
+        <img src="assets/comparasoftware-verified.svg" alt="ComparaSoftware verificado 2025" />
       </div>
     </div>
   </div>
