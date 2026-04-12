@@ -136,8 +136,10 @@ footer{background:#1a1a2e;padding:48px 5% 32px;border-top:1px solid #ffffff10}
 .footer-links a{font-size:13px;color:#555;transition:.15s}
 .footer-links a:hover{color:#fff}
 .footer-copy{font-size:13px;color:#555}
-.footer-verify{font-size:13px;color:#7f8594;line-height:1.6}
+.footer-verify{display:flex;align-items:center;gap:12px;font-size:13px;color:#7f8594;line-height:1.6}
 .footer-verify a{color:#cfd8ee;text-decoration:underline;text-underline-offset:3px}
+.footer-verify img{height:28px;width:auto;display:block;opacity:.92}
+.module-partner-logo{height:22px;width:auto;display:block}
 
 @media(max-width:1024px){
   .calc-shell{grid-template-columns:1fr}
@@ -310,7 +312,7 @@ footer{background:#1a1a2e;padding:48px 5% 32px;border-top:1px solid #ffffff10}
               <div class="module-meta"><div class="module-price">0,25 <span>UF / mes</span></div><div class="module-check">✓</div></div>
             </button>
             <button class="module-card integration-card quote-only" data-integration="bsale" data-price="">
-              <div class="module-head"><div class="module-icon">🧩</div><div class="module-pill">Integración</div></div>
+              <div class="module-head"><img src="assets/bsale-logo.png" alt="Bsale" class="module-partner-logo" /><div class="module-pill">Integración</div></div>
               <h3>Integración Bsale Facturación</h3>
               <p>Conexión con Bsale para llevar la capa de facturación a un flujo integrado con la operación comercial.</p>
               <div class="module-meta"><div class="module-price">A cotizar <span>según alcance</span></div><div class="module-check">✓</div></div>
@@ -426,9 +428,12 @@ footer{background:#1a1a2e;padding:48px 5% 32px;border-top:1px solid #ffffff10}
     <div>
       <p class="footer-copy">© 2026 Produ. Todos los derechos reservados.</p>
       <div class="footer-verify">
+        <img src="assets/chile-partner.png" alt="Chile partner" />
+        <span>
         <a target="_blank" href="https://www.comparasoftware.cl/produ-app">Produ App</a>
         se encuentra verificado como
         <a target="_blank" href="https://www.comparasoftware.cl/saas-solutions">Soluciones SaaS en Chile</a>
+        </span>
       </div>
     </div>
   </div>
