@@ -193,9 +193,10 @@ footer{background:#1a1a2e;padding:64px 5% 40px;margin:0;border-top:1px solid #ff
 .footer-col a:hover{color:#fff}
 .footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:32px;border-top:1px solid #ffffff10;flex-wrap:wrap;gap:12px}
 .footer-bottom p{font-size:13px;color:#555}
-.footer-verify{display:flex;align-items:center;gap:12px;font-size:13px;color:#7f8594;line-height:1.6;max-width:620px}
+.footer-verify{display:flex;flex-direction:column;align-items:flex-start;gap:10px;font-size:13px;color:#7f8594;line-height:1.6;max-width:620px}
 .footer-verify a{color:#d7e6ff;text-decoration:underline;text-underline-offset:3px}
-.footer-verify img{height:28px;width:auto;display:block;opacity:.92}
+.footer-verify-logos{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.footer-verify-logos img{height:28px;width:auto;display:block;opacity:.92}
 .footer-bottom-links{display:flex;gap:20px}
 .footer-bottom-links a{font-size:13px;color:#555;transition:.15s}
 .footer-bottom-links a:hover{color:#fff}
@@ -731,12 +732,15 @@ footer{background:#1a1a2e;padding:64px 5% 40px;margin:0;border-top:1px solid #ff
     <div class="footer-bottom">
       <p>© 2026 Produ — Gestión de Productoras. Todos los derechos reservados.</p>
       <div class="footer-verify">
-        <img src="assets/chile-partner.png" alt="Chile partner" />
         <span>
         <a target="_blank" href="https://www.comparasoftware.cl/produ-app">Produ App</a>
         se encuentra verificado como
         <a target="_blank" href="https://www.comparasoftware.cl/saas-solutions">Soluciones SaaS en Chile</a>
         </span>
+        <div class="footer-verify-logos">
+          <img src="assets/chile-partner.png" alt="Chile partner" />
+          <img src="assets/comparasoftware-verified.svg" alt="ComparaSoftware verificado 2025" />
+        </div>
       </div>
       <div class="footer-bottom-links">
       </div>
