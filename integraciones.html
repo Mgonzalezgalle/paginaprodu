@@ -39,10 +39,10 @@ nav{position:sticky;top:0;z-index:100;background:rgba(246,248,252,.92);backdrop-
 .card{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:26px;box-shadow:0 16px 42px rgba(16,26,51,.06)}
 .partner-card{display:flex;flex-direction:column;justify-content:space-between}
 .partner-brand{display:inline-flex;align-items:center;gap:14px;padding:14px 18px;border-radius:20px;border:1px solid var(--line);background:#fff;box-shadow:0 16px 42px rgba(16,26,51,.06);margin-bottom:18px;align-self:flex-start}
-.partner-brand span{font-family:'Syne',sans-serif;font-size:24px;font-weight:800;letter-spacing:-.8px;color:var(--ink)}
 .partner-logo{display:block;flex-shrink:0}
 .partner-logo.market{height:56px;width:auto}
-.partner-logo.calendar{height:46px;width:46px}
+.partner-logo.calendar{height:64px;width:auto}
+.partner-logo.bsale{height:44px;width:auto}
 .pill{display:inline-flex;align-items:center;padding:6px 10px;border-radius:999px;background:#eef7f4;color:#0e8b74;font-size:11px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;margin-bottom:14px}
 .card h3{font-family:'Syne',sans-serif;font-size:24px;letter-spacing:-.6px}
 .card p{font-size:14px;line-height:1.7;color:var(--muted);margin-top:10px}
@@ -101,6 +101,9 @@ footer{background:#0e1629;padding:46px 5% 30px;color:#c5d1eb}
     <div class="section-tag">Partner activo</div>
     <h2 class="section-title">Bsale es partner de facturación electrónica.</h2>
     <p class="section-desc">En Produ, la experiencia de facturación vive dentro del producto. Bsale opera como motor tributario para emitir, consultar estado y obtener recursos del documento electrónico.</p>
+    <div class="partner-brand">
+      <img class="partner-logo bsale" src="assets/bsale-logo.png" alt="Bsale" />
+    </div>
   </div>
   <div class="grid">
     <article class="card">
@@ -160,8 +163,7 @@ footer{background:#0e1629;padding:46px 5% 30px;color:#c5d1eb}
     <article class="card partner-card">
       <div class="pill">Agenda operativa</div>
       <div class="partner-brand">
-        <img class="partner-logo calendar" src="assets/google-calendar-partner.svg" alt="Google Calendar" />
-        <span>Google Calendar</span>
+        <img class="partner-logo calendar" src="assets/google-calendar-logo-full.png" alt="Google Calendar" />
       </div>
       <p>Partner de agenda para sincronizar reuniones, bloques operativos y eventos relevantes del equipo desde Produ.</p>
       <ul>
