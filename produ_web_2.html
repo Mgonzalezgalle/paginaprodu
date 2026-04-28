@@ -613,7 +613,7 @@ footer{background:#1a1a2e;padding:64px 5% 40px;margin:0;border-top:1px solid #ff
       <div class="footer-col">
         <h4>Soporte</h4>
         <a href="#">Centro de ayuda</a>
-        <a href="#">contacto@produ.cl</a>
+        <a href="mailto:hola@produ.cl">hola@produ.cl</a>
         <a href="#">+56 229380010</a>
       </div>
     </div>
@@ -710,7 +710,7 @@ async function enviarFormulario(e){
   );
 
   // Abrir cliente de correo
-  window.location.href = 'mailto:playmedia@grupogonzalez.co?subject=' + asunto + '&body=' + cuerpo;
+  window.location.href = 'mailto:hola@produ.cl?subject=' + asunto + '&body=' + cuerpo;
 
   // Mostrar mensaje de éxito
   setTimeout(() => {
@@ -718,7 +718,7 @@ async function enviarFormulario(e){
     msg.style.background = '#f0fdf4';
     msg.style.border = '1px solid #bbf7d0';
     msg.style.color = '#15803d';
-    msg.innerHTML = '✓ ¡Listo! Se abrió tu cliente de correo con los datos prellenados. Si no se abrió, escríbenos directo a <strong>playmedia@grupogonzalez.co</strong>';
+    msg.innerHTML = '✓ ¡Listo! Se abrió tu cliente de correo con los datos prellenados. Si no se abrió, escríbenos directo a <strong>hola@produ.cl</strong>';
     btn.textContent = '✓ Enviado';
     btn.style.background = '#15803d';
     btn.style.opacity = '1';
