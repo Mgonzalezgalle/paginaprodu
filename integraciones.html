@@ -44,6 +44,8 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-
 .partner-logo.market{height:56px;width:auto}
 .partner-logo.calendar{height:64px;width:auto}
 .partner-logo.bsale{height:44px;width:auto}
+.partner-logo.diio{height:58px;width:auto}
+.integration-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 .pill{display:inline-flex;align-items:center;padding:6px 10px;border-radius:999px;background:#eef7f4;color:#0e8b74;font-size:11px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;margin-bottom:14px}
 .card h3{font-family:'Syne',sans-serif;font-size:24px;letter-spacing:-.6px}
 .card p{font-size:14px;line-height:1.7;color:var(--muted);margin-top:10px}
@@ -61,8 +63,8 @@ footer{background:#1a1a2e;padding:48px 5% 32px}
 .footer-links a,.footer-copy{font-size:13px;color:#555}
 .footer-affiliate{display:inline-flex;align-items:center;gap:10px}
 .footer-affiliate img{height:32px;width:auto;display:block;opacity:.9}
-@media (max-width: 980px){.grid{grid-template-columns:1fr 1fr}}
-@media (max-width: 760px){.nav-links,.nav-cta .btn-outline{display:none}.section,.hero-wrap,.cta{padding-left:20px;padding-right:20px}.grid{grid-template-columns:1fr}.cta-box{padding:44px 24px}}
+@media (max-width: 980px){.grid,.integration-grid{grid-template-columns:1fr 1fr}}
+@media (max-width: 760px){.nav-links,.nav-cta .btn-outline{display:none}.section,.hero-wrap,.cta{padding-left:20px;padding-right:20px}.grid,.integration-grid{grid-template-columns:1fr}.cta-box{padding:44px 24px}}
 </style>
 </head>
 <body>
@@ -144,10 +146,10 @@ footer{background:#1a1a2e;padding:48px 5% 32px}
 <section class="section">
   <div class="section-head">
     <div class="section-tag">Integraciones activas</div>
-    <h2 class="section-title">Mercado Pago y Google Calendar amplían la operación cuando el flujo del cliente lo necesita.</h2>
-    <p class="section-desc">La idea no es sumar complejidad. Estas integraciones ya están contempladas para resolver cobro online y agenda operativa sin sacar al equipo del flujo principal dentro de Produ.</p>
+    <h2 class="section-title">Mercado Pago, Google Calendar y Diio amplían la operación cuando el flujo del cliente lo necesita.</h2>
+    <p class="section-desc">La idea no es sumar complejidad. Estas integraciones ya están contempladas para resolver cobro online, agenda operativa e inteligencia sobre reuniones sin sacar al equipo del flujo principal dentro de Produ.</p>
   </div>
-  <div class="grid">
+  <div class="grid integration-grid">
     <article class="card partner-card">
       <div>
         <div class="pill">Cobros online</div>
@@ -163,21 +165,37 @@ footer{background:#1a1a2e;padding:48px 5% 32px}
       </ul>
     </article>
     <article class="card partner-card">
-      <div class="pill">Agenda operativa</div>
-      <div class="partner-brand">
-        <img class="partner-logo calendar" src="assets/google-calendar-logo-full.png" alt="Google Calendar" />
+      <div>
+        <div class="pill">Agenda operativa</div>
+        <div class="partner-brand">
+          <img class="partner-logo calendar" src="assets/google-calendar-logo-full.png" alt="Google Calendar" />
+        </div>
+        <p>Partner de agenda para sincronizar reuniones, bloques operativos y eventos relevantes del equipo desde Produ.</p>
       </div>
-      <p>Partner de agenda para sincronizar reuniones, bloques operativos y eventos relevantes del equipo desde Produ.</p>
       <ul>
         <li>Sincronización de eventos por usuario</li>
         <li>Visibilidad de agenda dentro de Produ</li>
         <li>Meets e invitados cuando el flujo lo requiere</li>
       </ul>
     </article>
+    <article class="card partner-card">
+      <div>
+        <div class="pill">Inteligencia de reuniones</div>
+        <div class="partner-brand">
+          <img class="partner-logo diio" src="assets/diio.png" alt="Diio" />
+        </div>
+        <p>Partner para capturar reuniones, compromisos y contexto comercial, conectando esa información con la operación dentro de Produ.</p>
+      </div>
+      <ul>
+        <li>Registro de reuniones asociadas a clientes, proyectos y contenidos</li>
+        <li>Compromisos y seguimiento comercial desde conversaciones reales</li>
+        <li>Contexto útil para CRM, producción y coordinación interna</li>
+      </ul>
+    </article>
     <article class="card">
       <div class="pill">Implementación</div>
       <h3>Activación por cliente</h3>
-      <p>Las integraciones se habilitan por tenant según la necesidad operativa del cliente. No todos necesitan cobranzas online o agenda conectada desde el primer día.</p>
+      <p>Las integraciones se habilitan por tenant según la necesidad operativa del cliente. No todos necesitan cobros online, agenda conectada o inteligencia de reuniones desde el primer día.</p>
       <ul>
         <li>Configuración de credenciales por cliente</li>
         <li>Activación controlada por tenant</li>
@@ -190,8 +208,8 @@ footer{background:#1a1a2e;padding:48px 5% 32px}
 <section class="cta">
   <div class="cta-box">
     <div class="cta-copy">
-      <h2>¿Quieres evaluar si tu operación necesita facturación electrónica integrada?</h2>
-      <p>Te ayudamos a definir si conviene activar este partner desde el inicio o dejarlo para una segunda fase de implementación.</p>
+      <h2>¿Quieres evaluar qué integraciones conviene activar primero en tu operación?</h2>
+      <p>Te ayudamos a definir si vale la pena partir con facturación, cobros, agenda o inteligencia de reuniones desde la primera fase de implementación.</p>
     </div>
     <div class="cta-actions">
       <a href="https://portal.produ.cl/" target="_blank" class="btn-primary" style="background:#fff;color:#101a33">Solicitar demo</a>
