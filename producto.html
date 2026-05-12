@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="/favicon.png">
+<title>Producto — Produ</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Manrope',sans-serif;background:#f7f8fc;color:#1a1a2e;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid #eceef5;padding:0 5%}
+.nav-inner{max-width:1240px;height:72px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.nav-logo,.footer-logo{display:flex;align-items:center;gap:12px}
+.nav-logo-icon,.footer-logo-icon{width:36px;height:36px;border-radius:10px;background:#1a1a2e;display:flex;align-items:center;justify-content:center}
+.brand-stack,.footer-logo-copy{display:flex;flex-direction:column;line-height:1}
+.nav-logo-text,.footer-logo-text{font-family:'Syne',sans-serif;font-size:24px;font-weight:800;letter-spacing:-1px;color:#1a1a2e}
+.nav-logo-sub,.footer-logo-sub{font-size:10px;color:#7f8594;margin-top:4px;white-space:nowrap}
+.nav-links{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.nav-links a{font-size:13px;font-weight:700;color:#667085}
+.nav-links a.active,.nav-links a:hover{color:#1a1a2e}
+.nav-cta{display:flex;align-items:center;gap:10px}
+.btn-outline,.btn-primary{display:inline-flex;align-items:center;justify-content:center;border-radius:12px;font-weight:800;transition:.18s ease;cursor:pointer}
+.btn-outline{padding:10px 16px;border:1.5px solid #1a1a2e;color:#1a1a2e;font-size:13px;background:transparent}
+.btn-primary{padding:10px 16px;background:#1a1a2e;color:#fff;font-size:13px;border:none}
+.hero{max-width:1240px;margin:0 auto;padding:92px 5% 42px}
+.hero-shell{display:grid;grid-template-columns:1.1fr .9fr;gap:22px;align-items:stretch}
+.hero-copy,.hero-side{background:#fff;border:1.5px solid #ebedf4;border-radius:28px;box-shadow:0 18px 48px rgba(15,23,42,.06)}
+.hero-copy{padding:44px}
+.hero-badge,.section-tag,.mini-tag{display:inline-flex;align-items:center;padding:7px 12px;border-radius:999px;background:#eef2ff;color:#30407a;font-size:12px;font-weight:800;letter-spacing:.5px;text-transform:uppercase}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(40px,5vw,64px);line-height:1;letter-spacing:-2px;margin:18px 0}
+.hero p{font-size:18px;line-height:1.72;color:#667085;max-width:680px}
+.hero-points{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:28px}
+.hero-point{padding:16px 18px;border-radius:18px;border:1px solid #eaedf5;background:linear-gradient(180deg,#fff 0%,#f8f9fd 100%)}
+.hero-point strong{display:block;font-size:15px;margin-bottom:6px}
+.hero-point span{font-size:13px;line-height:1.6;color:#667085}
+.hero-side{padding:26px;background:linear-gradient(180deg,#1a1a2e 0%,#111320 100%);color:#fff;border:none}
+.hero-side h3{font-family:'Syne',sans-serif;font-size:24px;letter-spacing:-.8px;margin-bottom:10px}
+.hero-side p{font-size:14px;line-height:1.7;color:#aeb7c9;margin-bottom:18px}
+.hero-stack{display:grid;gap:12px}
+.hero-stack-card{padding:16px 18px;border-radius:18px;background:#ffffff0d;border:1px solid #ffffff12}
+.hero-stack-card strong{display:block;font-size:14px;margin-bottom:6px}
+.hero-stack-card span{font-size:13px;line-height:1.55;color:#c8d0e0}
+.section{max-width:1240px;margin:0 auto;padding:26px 5% 84px}
+.section-head{max-width:780px;margin-bottom:28px}
+.section-title{font-family:'Syne',sans-serif;font-size:clamp(30px,4vw,48px);line-height:1.06;letter-spacing:-1.4px;margin:16px 0 12px}
+.section-desc{font-size:17px;line-height:1.72;color:#667085}
+.pillar-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.pillar-card{padding:26px;border-radius:24px;background:#fff;border:1.5px solid #ebedf4;box-shadow:0 14px 34px rgba(15,23,42,.05)}
+.pillar-card h3{font-family:'Syne',sans-serif;font-size:24px;letter-spacing:-.6px;margin:14px 0 10px}
+.pillar-card p{font-size:14px;line-height:1.7;color:#667085;margin-bottom:16px}
+.pillar-card ul{list-style:none;display:grid;gap:10px}
+.pillar-card li{font-size:14px;color:#1a1a2e;line-height:1.55}
+.pillar-card li::before{content:"• ";color:#30407a}
+.story-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.story-card{padding:24px;border-radius:24px;background:#fff;border:1.5px solid #ebedf4}
+.story-card h3{font-family:'Syne',sans-serif;font-size:22px;letter-spacing:-.5px;margin:12px 0 10px}
+.story-card p{font-size:14px;line-height:1.7;color:#667085}
+.story-card .mini-tag{background:#f2f4f8;color:#667085}
+.cta{max-width:1240px;margin:0 auto 84px;padding:0 5%}
+.cta-box{padding:64px 42px;border-radius:30px;background:#1a1a2e;color:#fff;display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;box-shadow:0 24px 60px rgba(12,14,28,.22)}
+.cta-box h2{font-family:'Syne',sans-serif;font-size:clamp(28px,4vw,46px);letter-spacing:-1px;margin-bottom:12px}
+.cta-box p{font-size:17px;line-height:1.7;color:#aeb7c9;max-width:640px}
+.cta-actions{display:flex;gap:12px;flex-wrap:wrap}
+footer{background:#1a1a2e;padding:64px 5% 40px;margin:0;border-top:1px solid #ffffff10}
+.footer-inner{max-width:1200px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.footer-desc{font-size:14px;color:#666;line-height:1.7;max-width:280px}
+.footer-col h4{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#555;margin-bottom:16px}
+.footer-col a{display:block;font-size:14px;color:#666;margin-bottom:10px;transition:.15s}
+.footer-col a:hover{color:#fff}
+.footer-badge-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:18px}
+.footer-badge-row img{height:40px;width:auto;display:block;opacity:.94}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:32px;border-top:1px solid #ffffff10;flex-wrap:wrap;gap:12px}
+.footer-bottom p{font-size:13px;color:#555}
+.footer-verify{display:flex;flex-direction:column;align-items:flex-end;gap:10px;font-size:13px;color:#7f8594;line-height:1.6;max-width:620px;text-align:right}
+.footer-verify a{color:#d7e6ff;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:1080px){.hero-shell,.pillar-grid,.story-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.nav-links,.nav-cta .btn-outline{display:none}.hero,.section,.cta{padding-left:20px;padding-right:20px}.hero-shell,.pillar-grid,.story-grid,.hero-points{grid-template-columns:1fr}.hero-copy,.hero-side,.cta-box{padding:28px 22px}.footer-top{grid-template-columns:1fr 1fr;gap:32px}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon"><svg viewBox="0 0 24 24" fill="#fff" width="16" height="16"><polygon points="5,3 20,12 5,21"/></svg></div>
+      <div class="brand-stack"><div class="nav-logo-text">produ</div><div class="nav-logo-sub">Gestión de Productoras</div></div>
+    </a>
+    <div class="nav-links">
+      <a href="#" class="active">Producto</a>
+      <a href="soluciones.html">Soluciones</a>
+      <a href="industrias.html">Industrias</a>
+      <a href="integraciones.html">Integraciones</a>
+      <a href="precios.html">Precios</a>
+      <a href="casos-de-uso.html">Casos de uso</a>
+      <a href="recursos.html">Recursos</a>
+    </div>
+    <div class="nav-cta">
+      <a href="https://portal.produ.cl" target="_blank" class="btn-outline">Iniciar sesión</a>
+      <a href="agenda-demo.html" class="btn-primary">Agenda demo</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-shell">
+    <div class="hero-copy">
+      <div class="hero-badge">Producto</div>
+      <h1>Una plataforma para ordenar la operación real de una productora</h1>
+      <p>Produ reúne comercial, operación y finanzas en un solo sistema para que tu equipo pueda seguir el trabajo completo, sin planillas sueltas ni información repartida entre herramientas distintas.</p>
+      <div class="hero-points">
+        <div class="hero-point"><strong>Parte con una base clara</strong><span>Dashboard, calendario, clientes y proyectos para empezar con orden desde el primer día.</span></div>
+        <div class="hero-point"><strong>Crece por etapas</strong><span>Activa nuevas capacidades cuando tu operación realmente las necesita.</span></div>
+        <div class="hero-point"><strong>Conecta áreas</strong><span>Lo comercial alimenta la operación y la operación sostiene documentos, cobros y pagos.</span></div>
+        <div class="hero-point"><strong>Acompaña crecimiento</strong><span>Sirve para equipos que están ordenando su base y para operaciones más complejas.</span></div>
+      </div>
+    </div>
+    <aside class="hero-side">
+      <h3>Cuatro pilares para entender Produ</h3>
+      <p>La plataforma no se presenta como una lista de módulos sueltos. Se organiza en pilares claros para que cada equipo entienda rápido qué parte resuelve cada necesidad.</p>
+      <div class="hero-stack">
+        <div class="hero-stack-card"><strong>Base</strong><span>Dashboard, Calendario, Clientes y Proyectos.</span></div>
+        <div class="hero-stack-card"><strong>Comercial</strong><span>CRM y Presupuestos para el seguimiento del negocio.</span></div>
+        <div class="hero-stack-card"><strong>Operación</strong><span>Producciones, Contenidos, Tareas y Comentarios para ejecutar mejor.</span></div>
+        <div class="hero-stack-card"><strong>Finanzas</strong><span>Facturación, Tesorería y Órdenes de Compra para controlar cobros y pagos.</span></div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <div class="section-tag">Pilares</div>
+    <h2 class="section-title">Cada parte del producto responde a una necesidad concreta</h2>
+    <p class="section-desc">Así es más fácil implementar, vender y adoptar Produ dentro del equipo. No se trata de tener muchas pantallas. Se trata de ordenar mejor cómo trabaja tu empresa.</p>
+  </div>
+  <div class="pillar-grid">
+    <article class="pillar-card"><div class="mini-tag">Base</div><h3>Base</h3><p>La estructura mínima para partir con visibilidad, contexto y orden.</p><ul><li>Dashboard</li><li>Calendario</li><li>Clientes</li><li>Proyectos</li></ul></article>
+    <article class="pillar-card"><div class="mini-tag">Comercial</div><h3>Comercial</h3><p>Todo lo necesario para hacer seguimiento comercial y convertir oportunidades en trabajo real.</p><ul><li>CRM</li><li>Presupuestos</li></ul></article>
+    <article class="pillar-card"><div class="mini-tag">Operación</div><h3>Operación</h3><p>La capa donde el equipo coordina producción, contenidos, entregas y seguimiento interno.</p><ul><li>Producciones</li><li>Contenidos</li><li>Tareas</li><li>Comentarios</li></ul></article>
+    <article class="pillar-card"><div class="mini-tag">Finanzas</div><h3>Finanzas</h3><p>La parte del producto donde la operación se conecta con documentos, cobros y pagos.</p><ul><li>Facturación</li><li>Tesorería</li><li>Órdenes de Compra</li></ul></article>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <div class="section-tag">Valor</div>
+    <h2 class="section-title">Lo importante no es solo tener módulos, sino que todo converse</h2>
+    <p class="section-desc">La fuerza de Produ está en conectar clientes, proyectos, piezas, documentos, cobros y pagos bajo una misma lógica de trabajo.</p>
+  </div>
+  <div class="story-grid">
+    <article class="story-card"><div class="mini-tag">Menos fricción</div><h3>Una sola fuente de contexto</h3><p>La información no se pierde entre Excel, correo y conversaciones sueltas. El equipo trabaja con la misma base.</p></article>
+    <article class="story-card"><div class="mini-tag">Más orden</div><h3>Procesos más claros</h3><p>Se entiende mejor qué sigue, quién está a cargo y qué documentos sostienen cada parte del trabajo.</p></article>
+    <article class="story-card"><div class="mini-tag">Más visibilidad</div><h3>Mejores decisiones</h3><p>Comercial, operación y finanzas dejan de mirar mundos separados y pasan a leer la misma operación.</p></article>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="cta-box">
+    <div>
+      <h2>¿Quieres ver cómo se vería tu operación dentro de Produ?</h2>
+      <p>Te mostramos con qué pilar conviene partir, qué módulos tiene sentido activar primero y cómo se adapta la plataforma a tu ritmo de crecimiento.</p>
+    </div>
+    <div class="cta-actions">
+      <a href="agenda-demo.html" class="btn-primary" style="background:#fff;color:#101120">Agenda demo</a>
+      <a href="precios.html" class="btn-outline" style="border-color:#ffffff30;color:#fff">Ver precios</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">
+          <div class="footer-logo-icon"><svg viewBox="0 0 24 24" fill="#1a1a2e" width="14" height="14"><polygon points="5,3 20,12 5,21"/></svg></div>
+          <div class="footer-logo-copy"><span class="footer-logo-text" style="color:#fff">produ</span><span class="footer-logo-sub">Gestión de Productoras</span></div>
+        </div>
+        <p class="footer-desc">Plataforma de gestión para productoras audiovisuales. Centraliza comercial, producción, tesorería, documentos y seguimiento en un solo sistema.</p>
+        <div class="footer-badge-row">
+          <img src="assets/chile-partner.png" alt="Chile partner" />
+          <img src="assets/comparasoftware-verified.svg" alt="ComparaSoftware verificado 2025" />
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Producto</h4>
+        <a href="producto.html">Producto</a>
+        <a href="soluciones.html">Soluciones</a>
+        <a href="industrias.html">Industrias</a>
+        <a href="casos-de-uso.html">Casos de uso</a>
+        <a href="recursos.html">Recursos</a>
+      </div>
+      <div class="footer-col">
+        <h4>Empresa</h4>
+        <a href="integraciones.html">Integraciones</a>
+        <a href="precios.html">Precios</a>
+        <a href="agenda-demo.html">Agenda demo</a>
+      </div>
+      <div class="footer-col">
+        <h4>Soporte</h4>
+        <a href="agenda-demo.html">Solicitar demo</a>
+        <a href="mailto:hola@produ.cl">hola@produ.cl</a>
+        <a href="tel:+56229380010">+56 2 2938 0010</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Produ — Gestión de Productoras. Todos los derechos reservados.</p>
+      <div class="footer-verify">
+        <span>
+          <a target="_blank" href="https://www.comparasoftware.cl/produ-app">Produ App</a>
+          se encuentra verificado como
+          <a target="_blank" href="https://www.comparasoftware.cl/saas-solutions">Soluciones SaaS en Chile</a>
+        </span>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

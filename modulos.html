@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="/favicon.png">
+<title>Pilares de Produ — Produ</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Manrope',sans-serif;background:#fff;color:#1a1a2e;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-bottom:1px solid #f0f0f0;padding:0 5%}
+.nav-inner{max-width:1200px;height:68px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.nav-logo,.footer-logo{display:flex;align-items:center;gap:12px}
+.nav-logo-icon,.footer-logo-icon{width:36px;height:36px;border-radius:9px;background:#1a1a2e;display:flex;align-items:center;justify-content:center}
+.brand-stack,.footer-logo-copy{display:flex;flex-direction:column;line-height:1}
+.nav-logo-text,.footer-logo-text{font-family:'Syne',sans-serif;font-size:24px;font-weight:800;letter-spacing:-1px;color:#1a1a2e}
+.nav-logo-sub,.footer-logo-sub{font-size:10.6px;color:#7f8594;margin-top:4px;white-space:nowrap}
+.nav-links{display:flex;align-items:center;gap:32px}
+.nav-links a{font-size:14px;font-weight:500;color:#555}
+.nav-links a.active,.nav-links a:hover{color:#1a1a2e}
+.nav-cta{display:flex;gap:12px}
+.btn-outline,.btn-primary{display:inline-flex;align-items:center;justify-content:center;border-radius:12px;font-weight:700;transition:.18s ease;cursor:pointer}
+.btn-outline{padding:9px 20px;border:1.5px solid #1a1a2e;color:#1a1a2e;font-size:14px;background:transparent}
+.btn-primary{padding:9px 20px;background:#1a1a2e;color:#fff;font-size:14px;border:none}
+.hero{max-width:1200px;margin:0 auto;padding:86px 5% 48px;text-align:center}
+.hero-badge,.section-tag,.module-tag{display:inline-flex;align-items:center;padding:7px 12px;border-radius:999px;background:#f0f0f8;color:#1a1a2e;font-size:12px;font-weight:800;letter-spacing:.5px;text-transform:uppercase}
+.hero-badge{margin-bottom:24px}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(38px,5.5vw,62px);line-height:1.03;letter-spacing:-2px;margin-bottom:18px}
+.hero p{font-size:18px;line-height:1.7;color:#667085;max-width:780px;margin:0 auto}
+.section{max-width:1200px;margin:0 auto;padding:76px 5%}
+.section-head{max-width:780px;margin-bottom:34px}
+.section-title{font-family:'Syne',sans-serif;font-size:clamp(30px,4vw,46px);line-height:1.08;letter-spacing:-1.3px;margin:16px 0 12px}
+.section-desc{font-size:17px;line-height:1.7;color:#667085}
+.modules-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.module-card{padding:24px;border-radius:18px;border:1.5px solid #ececf4;background:#fff;box-shadow:0 14px 34px rgba(15,23,42,.04)}
+.module-icon{font-size:28px;margin-bottom:14px}
+.module-card h3{font-family:'Syne',sans-serif;font-size:18px;letter-spacing:-.4px;margin-bottom:8px}
+.module-card p{font-size:14px;line-height:1.65;color:#667085;margin-bottom:14px}
+.module-tag{font-size:10px}
+.module-tag.addon{background:#f5f7ff;color:#30407a}
+.module-tag.plus{background:#eefbf4;color:#17663f}
+.bands{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.band-card{padding:24px;border-radius:22px;border:1.5px solid #ececf4;background:linear-gradient(180deg,#fff 0%,#f8f9fd 100%)}
+.band-card h3{font-family:'Syne',sans-serif;font-size:22px;letter-spacing:-.5px;margin-bottom:10px}
+.band-card p{font-size:14px;line-height:1.7;color:#667085}
+.band-card ul{list-style:none;display:grid;gap:10px;margin-top:16px}
+.band-card li{font-size:14px;line-height:1.55;color:#1a1a2e}
+.band-card li::before{content:"✓ ";color:#1a1a2e}
+.cta{max-width:1200px;margin:0 auto 88px;padding:0 5%}
+.cta-box{border-radius:28px;background:#1a1a2e;padding:68px 44px;color:#fff;display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;box-shadow:0 24px 60px rgba(12,14,28,.24)}
+.cta-copy h2{font-family:'Syne',sans-serif;font-size:clamp(28px,4vw,44px);letter-spacing:-1px;margin-bottom:12px}
+.cta-copy p{font-size:17px;line-height:1.7;color:#aeb7c9;max-width:640px}
+.cta-actions{display:flex;gap:12px;flex-wrap:wrap}
+footer{background:#1a1a2e;padding:48px 5% 32px}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.footer-links{display:flex;gap:22px;flex-wrap:wrap}
+.footer-links a,.footer-copy{font-size:13px;color:#555}
+.footer-affiliate{display:inline-flex;align-items:center;gap:10px}
+.footer-affiliate img{height:32px;width:auto;display:block;opacity:.9}
+@media (max-width: 980px){.modules-grid{grid-template-columns:1fr 1fr}.bands{grid-template-columns:1fr}}
+@media (max-width: 760px){.nav-links,.nav-cta .btn-outline{display:none}.section,.hero,.cta{padding-left:20px;padding-right:20px}.modules-grid{grid-template-columns:1fr}.cta-box{padding:44px 24px}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon">
+        <svg viewBox="0 0 24 24" fill="#fff" width="16" height="16"><polygon points="5,3 20,12 5,21"/></svg>
+      </div>
+      <div class="brand-stack">
+        <div class="nav-logo-text">produ</div>
+        <div class="nav-logo-sub">Gestión de Productoras</div>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="producto.html">Producto</a>
+      <a href="soluciones.html">Soluciones</a>
+      <a href="industrias.html">Industrias</a>
+      <a href="integraciones.html">Integraciones</a>
+      <a href="precios.html">Precios</a>
+      <a href="casos-de-uso.html">Casos de uso</a>
+      <a href="recursos.html">Recursos</a>
+    </div>
+    <div class="nav-cta">
+      <a href="https://portal.produ.cl" target="_blank" class="btn-outline">Iniciar sesión</a>
+      <a href="agenda-demo.html" class="btn-primary">Agenda demo</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-badge">Módulos</div>
+  <h1>Cuatro pilares para ordenar toda tu operación en Produ</h1>
+  <p>En vez de mostrar módulos sueltos, Produ organiza la plataforma en pilares claros para que cada equipo entienda rápido dónde empieza, cómo crece y qué área le resuelve cada necesidad.</p>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <div class="section-tag">Pilares de Produ</div>
+    <h2 class="section-title">Una estructura simple para entender cómo crece tu operación dentro de Produ</h2>
+    <p class="section-desc">Cada pilar agrupa módulos que responden a una misma necesidad. Así la plataforma se entiende mejor, se implementa con más claridad y acompaña mejor el crecimiento de cada empresa.</p>
+  </div>
+  <div class="bands">
+    <article class="band-card">
+      <h3>Base</h3>
+      <p>La base para empezar a trabajar con orden, visibilidad y contexto desde el primer día.</p>
+      <ul>
+        <li>Dashboard</li>
+        <li>Calendario</li>
+        <li>Clientes</li>
+        <li>Proyectos</li>
+      </ul>
+    </article>
+    <article class="band-card">
+      <h3>Comercial</h3>
+      <p>Todo lo que necesitas para ordenar oportunidades, propuestas y seguimiento comercial.</p>
+      <ul>
+        <li>CRM</li>
+        <li>Presupuestos</li>
+      </ul>
+    </article>
+    <article class="band-card">
+      <h3>Operación</h3>
+      <p>La capa donde el trabajo del día a día toma forma y el equipo mantiene el hilo de cada entrega.</p>
+      <ul>
+        <li>Producciones</li>
+        <li>Contenidos</li>
+        <li>Tareas</li>
+        <li>Comentarios</li>
+      </ul>
+    </article>
+    <article class="band-card">
+      <h3>Finanzas</h3>
+      <p>La parte de Produ donde documentos, cobranza y pagos se conectan con la operación real.</p>
+      <ul>
+        <li>Facturación</li>
+        <li>Tesorería</li>
+        <li>Órdenes de Compra</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <div class="section-tag">Módulos por pilar</div>
+    <h2 class="section-title">Cada módulo vive dentro de un pilar claro</h2>
+    <p class="section-desc">Así es más fácil entender qué resuelve cada parte de Produ y cómo se relaciona con el resto de la plataforma.</p>
+  </div>
+  <div class="modules-grid">
+    <div class="module-card"><div class="module-icon">⊞</div><h3>Dashboard</h3><p>Resumen operativo, financiero y comercial con alertas y actividad reciente.</p><div class="module-tag">Base</div></div>
+    <div class="module-card"><div class="module-icon">📅</div><h3>Calendario</h3><p>Grabaciones, emisiones, vencimientos, entregas y eventos relevantes.</p><div class="module-tag">Base</div></div>
+    <div class="module-card"><div class="module-icon">👥</div><h3>Clientes</h3><p>Empresas, contactos, historial y contexto comercial en un solo lugar.</p><div class="module-tag">Base</div></div>
+    <div class="module-card"><div class="module-icon">▶</div><h3>Proyectos</h3><p>Trabajos, campañas o producciones con contexto operativo y financiero conectado.</p><div class="module-tag">Base</div></div>
+    <div class="module-card"><div class="module-icon">🤝</div><h3>CRM</h3><p>Oportunidades, pipeline y seguimiento para que ninguna conversación se pierda.</p><div class="module-tag addon">Comercial</div></div>
+    <div class="module-card"><div class="module-icon">📋</div><h3>Presupuestos</h3><p>Propuestas claras, ordenadas y listas para continuar el flujo comercial.</p><div class="module-tag addon">Comercial</div></div>
+    <div class="module-card"><div class="module-icon">📺</div><h3>Producciones</h3><p>Controla trabajos, programas, marcas asociadas y avance operativo.</p><div class="module-tag addon">Operación</div></div>
+    <div class="module-card"><div class="module-icon">📱</div><h3>Contenidos</h3><p>Campañas, piezas por mes, estados, responsables y entregables por cliente.</p><div class="module-tag addon">Operación</div></div>
+    <div class="module-card"><div class="module-icon">✅</div><h3>Tareas</h3><p>Pendientes y responsables conectados con el trabajo real del equipo.</p><div class="module-tag addon">Operación</div></div>
+    <div class="module-card"><div class="module-icon">💬</div><h3>Comentarios</h3><p>Seguimiento, contexto y trazabilidad para que cada decisión quede registrada.</p><div class="module-tag addon">Operación</div></div>
+    <div class="module-card"><div class="module-icon">🧾</div><h3>Facturación</h3><p>Documentos de cobro conectados con clientes, proyectos y órdenes de compra.</p><div class="module-tag plus">Finanzas</div></div>
+    <div class="module-card"><div class="module-icon">💳</div><h3>Tesorería</h3><p>Cobranza, cuentas por pagar, pagos y visibilidad financiera de la operación.</p><div class="module-tag plus">Finanzas</div></div>
+    <div class="module-card"><div class="module-icon">🧩</div><h3>Órdenes de Compra</h3><p>Recibidas y emitidas, con seguimiento documental y relación directa con facturación.</p><div class="module-tag plus">Finanzas</div></div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="cta-box">
+    <div class="cta-copy">
+      <h2>¿Quieres definir con qué pilar conviene partir?</h2>
+      <p>Te ayudamos a ordenar una primera etapa realista para que la implementación acompañe tu operación y el crecimiento del equipo.</p>
+    </div>
+    <div class="cta-actions">
+      <a href="https://portal.produ.cl/" target="_blank" class="btn-primary">Solicitar demo</a>
+      <a href="precios.html" class="btn-outline" style="border-color:rgba(255,255,255,.24);color:#fff">Ver precios</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <div class="footer-logo-icon">
+        <svg viewBox="0 0 24 24" fill="#fff" width="15" height="15"><polygon points="5,3 20,12 5,21"/></svg>
+      </div>
+      <div class="footer-logo-copy">
+        <span class="footer-logo-text" style="color:#fff">produ</span>
+        <span class="footer-logo-sub">Gestión de Productoras</span>
+      </div>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="producto.html">Producto</a>
+      <a href="soluciones.html">Soluciones</a>
+      <a href="industrias.html">Industrias</a>
+      <a href="integraciones.html">Integraciones</a>
+      <a href="precios.html">Precios</a>
+      <a href="casos-de-uso.html">Casos de uso</a>
+      <a href="recursos.html">Recursos</a>
+    </div>
+    <div class="footer-affiliate">
+      <div class="footer-copy">© 2026 Produ. Operación audiovisual conectada.</div>
+      <img src="/assets/chile-partner.png" alt="Chile partner" />
+    </div>
+  </div>
+</footer>
+</body>
+</html>

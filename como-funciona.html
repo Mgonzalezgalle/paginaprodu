@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="/favicon.png">
+<title>Cómo funciona — Produ</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Manrope',sans-serif;background:#fff;color:#1a1a2e;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-bottom:1px solid #f0f0f0;padding:0 5%}
+.nav-inner{max-width:1200px;height:68px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.nav-logo,.footer-logo{display:flex;align-items:center;gap:12px}
+.nav-logo-icon,.footer-logo-icon{width:36px;height:36px;border-radius:9px;background:#1a1a2e;display:flex;align-items:center;justify-content:center}
+.brand-stack,.footer-logo-copy{display:flex;flex-direction:column;line-height:1}
+.nav-logo-text,.footer-logo-text{font-family:'Syne',sans-serif;font-size:24px;font-weight:800;letter-spacing:-1px;color:#1a1a2e}
+.nav-logo-sub,.footer-logo-sub{font-size:10.6px;color:#7f8594;margin-top:4px;white-space:nowrap}
+.nav-links{display:flex;align-items:center;gap:32px}
+.nav-links a{font-size:14px;font-weight:500;color:#555}
+.nav-links a.active,.nav-links a:hover{color:#1a1a2e}
+.nav-cta{display:flex;gap:12px}
+.btn-outline,.btn-primary,.btn-primary-lg{display:inline-flex;align-items:center;justify-content:center;border-radius:12px;font-weight:700;transition:.18s ease;cursor:pointer}
+.btn-outline{padding:9px 20px;border:1.5px solid #1a1a2e;color:#1a1a2e;font-size:14px;background:transparent}
+.btn-primary{padding:9px 20px;background:#1a1a2e;color:#fff;font-size:14px;border:none}
+.btn-primary-lg{padding:14px 26px;background:#1a1a2e;color:#fff;font-size:15px;border:none}
+.hero{max-width:1200px;margin:0 auto;padding:86px 5% 50px;text-align:center}
+.hero-badge,.section-tag{display:inline-flex;align-items:center;padding:7px 12px;border-radius:999px;background:#f0f0f8;color:#1a1a2e;font-size:12px;font-weight:800;letter-spacing:.5px;text-transform:uppercase}
+.hero-badge{margin-bottom:24px}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(38px,5.5vw,62px);line-height:1.03;letter-spacing:-2px;margin-bottom:18px}
+.hero p{font-size:18px;line-height:1.7;color:#667085;max-width:780px;margin:0 auto}
+.section{max-width:1200px;margin:0 auto;padding:76px 5%}
+.section-head{max-width:780px;margin-bottom:34px}
+.section-title{font-family:'Syne',sans-serif;font-size:clamp(30px,4vw,46px);line-height:1.08;letter-spacing:-1.3px;margin:16px 0 12px}
+.section-desc{font-size:17px;line-height:1.7;color:#667085}
+.flow-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
+.flow-card{padding:24px 20px;border-radius:20px;border:1.5px solid #e8ebf3;background:#fff;box-shadow:0 14px 34px rgba(15,23,42,.04);position:relative}
+.flow-step{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:999px;background:#1a1a2e;color:#fff;font-size:12px;font-weight:800;margin-bottom:14px}
+.flow-card h3{font-family:'Syne',sans-serif;font-size:18px;letter-spacing:-.4px;margin-bottom:8px}
+.flow-card p{font-size:14px;line-height:1.65;color:#667085}
+.flow-card::after{content:"";position:absolute;right:-10px;top:50%;width:20px;height:2px;background:linear-gradient(90deg,#d6dbea,#eef1f8);transform:translateY(-50%)}
+.flow-card:last-child::after{display:none}
+.features-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.feature-card{padding:26px;border-radius:20px;background:#f8f9fd;border:1.5px solid #ebedf4}
+.feature-icon{width:46px;height:46px;border-radius:12px;background:#1a1a2e;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:16px}
+.feature-card h3{font-family:'Syne',sans-serif;font-size:18px;letter-spacing:-.4px;margin-bottom:10px}
+.feature-card p{font-size:14px;line-height:1.65;color:#667085}
+.split-section{max-width:1200px;margin:0 auto;padding:86px 5%;display:grid;grid-template-columns:1fr 1fr;gap:74px;align-items:center}
+.split-section.reverse{direction:rtl}
+.split-section.reverse>*{direction:ltr}
+.split-content .tag{font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#7f8594;margin-bottom:14px}
+.split-content h2{font-family:'Syne',sans-serif;font-size:clamp(28px,3.2vw,40px);line-height:1.1;letter-spacing:-1px;margin-bottom:16px}
+.split-content p{font-size:16px;line-height:1.7;color:#667085;margin-bottom:28px}
+.split-items{display:flex;flex-direction:column;gap:16px}
+.split-item{display:flex;gap:14px;align-items:flex-start}
+.split-item-icon{width:38px;height:38px;border-radius:10px;background:#f0f0f8;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;margin-top:2px}
+.split-item h4{font-size:15px;font-weight:700;margin-bottom:4px}
+.split-item p{font-size:14px;line-height:1.55;color:#667085;margin:0}
+.split-visual{border-radius:18px;overflow:hidden;border:1px solid #ececf4;background:#f8f9fd;padding:22px}
+.stats-section{background:#1a1a2e;padding:82px 5%}
+.stats-inner{max-width:1200px;margin:0 auto;text-align:center}
+.stats-title{font-family:'Syne',sans-serif;font-size:clamp(28px,4vw,42px);color:#fff;letter-spacing:-1px;margin-bottom:12px}
+.stats-sub{font-size:17px;color:#aeb7c9;line-height:1.7;max-width:760px;margin:0 auto 46px}
+.stats-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+.stat-item{text-align:center}
+.stat-num{font-family:'Syne',sans-serif;font-size:clamp(38px,5vw,56px);color:#fff;line-height:1;margin-bottom:8px}
+.stat-num span{font-size:.6em;color:#cbd5e1}
+.stat-label{font-size:14px;line-height:1.6;color:#aeb7c9}
+.cta{max-width:1200px;margin:0 auto 88px;padding:0 5%}
+.cta-box{border-radius:28px;background:#1a1a2e;padding:68px 44px;color:#fff;display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;box-shadow:0 24px 60px rgba(12,14,28,.24)}
+.cta-copy h2{font-family:'Syne',sans-serif;font-size:clamp(28px,4vw,44px);letter-spacing:-1px;margin-bottom:12px}
+.cta-copy p{font-size:17px;line-height:1.7;color:#aeb7c9;max-width:640px}
+.cta-actions{display:flex;gap:12px;flex-wrap:wrap}
+footer{background:#1a1a2e;padding:48px 5% 32px}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.footer-links{display:flex;gap:22px;flex-wrap:wrap}
+.footer-links a,.footer-copy{font-size:13px;color:#555}
+.footer-affiliate{display:inline-flex;align-items:center;gap:10px}
+.footer-affiliate img{height:32px;width:auto;display:block;opacity:.9}
+@media (max-width: 980px){.flow-grid,.features-grid,.stats-grid{grid-template-columns:1fr 1fr}.split-section{grid-template-columns:1fr;gap:42px}.split-section.reverse{direction:ltr}.flow-card::after{display:none}}
+@media (max-width: 760px){.nav-links,.nav-cta .btn-outline{display:none}.section,.hero,.cta,.split-section{padding-left:20px;padding-right:20px}.flow-grid,.features-grid,.stats-grid{grid-template-columns:1fr}.cta-box{padding:44px 24px}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon">
+        <svg viewBox="0 0 24 24" fill="#fff" width="16" height="16"><polygon points="5,3 20,12 5,21"/></svg>
+      </div>
+      <div class="brand-stack">
+        <div class="nav-logo-text">produ</div>
+        <div class="nav-logo-sub">Gestión de Productoras</div>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="producto.html">Producto</a>
+      <a href="soluciones.html">Soluciones</a>
+      <a href="industrias.html">Industrias</a>
+      <a href="integraciones.html">Integraciones</a>
+      <a href="precios.html">Precios</a>
+      <a href="casos-de-uso.html">Casos de uso</a>
+      <a href="recursos.html">Recursos</a>
+    </div>
+    <div class="nav-cta">
+      <a href="https://portal.produ.cl" target="_blank" class="btn-outline">Iniciar sesión</a>
+      <a href="agenda-demo.html" class="btn-primary">Agenda demo</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-badge">Cómo funciona</div>
+  <h1>Así se ordena la operación cuando todo conversa dentro de Produ</h1>
+  <p>La fuerza de Produ no está en módulos aislados. Está en conectar comercial, producción, documentos, cobros, pagos y seguimiento para que el equipo opere con contexto de principio a fin.</p>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <div class="section-tag">Flujo operativo</div>
+    <h2 class="section-title">De la oportunidad al cobro, en una sola cadena de trabajo</h2>
+    <p class="section-desc">Cada etapa alimenta a la siguiente con información útil, trazabilidad y documentos consistentes. El resultado es menos fricción, menos reproceso y mejor visibilidad ejecutiva.</p>
+  </div>
+  <div class="flow-grid">
+    <article class="flow-card"><div class="flow-step">01</div><h3>Captas y ordenas</h3><p>Registra clientes, contactos, oportunidades y necesidades reales desde el inicio de la relación comercial.</p></article>
+    <article class="flow-card"><div class="flow-step">02</div><h3>Presupuestas</h3><p>Construyes propuestas claras y listas para enviar sin volver a armar la información en otro sistema.</p></article>
+    <article class="flow-card"><div class="flow-step">03</div><h3>Produces</h3><p>Conectas proyectos, programas, piezas, equipo, fechas y seguimiento en una sola operación.</p></article>
+    <article class="flow-card"><div class="flow-step">04</div><h3>Documentas</h3><p>Relacionas presupuestos, facturas, órdenes de compra y contratos con el contexto real del trabajo.</p></article>
+    <article class="flow-card"><div class="flow-step">05</div><h3>Cobras y controlas</h3><p>Sigues cuentas por cobrar, pagos a proveedores y compromisos sin depender de planillas paralelas.</p></article>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <div class="section-tag">Por qué funciona</div>
+    <h2 class="section-title">Produ fue pensado para productoras, no adaptado después</h2>
+    <p class="section-desc">Eso cambia el tipo de objetos, procesos y decisiones que la plataforma soporta. El sistema refleja la operación real en vez de obligar al equipo a traducirla.</p>
+  </div>
+  <div class="features-grid">
+    <article class="feature-card"><div class="feature-icon">🎯</div><h3>Lenguaje de industria</h3><p>Trabajas con proyectos, programas, auspicios, piezas, crew, proveedores y cobranzas, no con conceptos genéricos.</p></article>
+    <article class="feature-card"><div class="feature-icon">🧭</div><h3>Un sistema central</h3><p>La información no se dispersa entre correos, planillas y chats. Comercial, operación y tesorería quedan conectados.</p></article>
+    <article class="feature-card"><div class="feature-icon">🧾</div><h3>Documentos con contexto</h3><p>Los documentos nacen desde el flujo real, con relaciones útiles para seguimiento y control.</p></article>
+  </div>
+</section>
+
+<section class="split-section">
+  <div class="split-content">
+    <p class="tag">Proyectos</p>
+    <h2>Cada proyecto mantiene unido lo comercial, lo operativo y lo financiero</h2>
+    <p>Produ no trata el proyecto como una ficha pasiva. Lo conecta con clientes, equipo, entregas, documentos y seguimiento financiero.</p>
+    <div class="split-items">
+      <div class="split-item"><div class="split-item-icon">📊</div><div><h4>Balance por proyecto</h4><p>Ingresos, gastos y balance visibles sin depender de planillas externas.</p></div></div>
+      <div class="split-item"><div class="split-item-icon">👥</div><div><h4>Equipo asignado</h4><p>Controla quién participa y bajo qué rol en cada trabajo.</p></div></div>
+      <div class="split-item"><div class="split-item-icon">📅</div><div><h4>Hitos y fechas</h4><p>Entregas, eventos y vencimientos visibles dentro del mismo contexto operativo.</p></div></div>
+    </div>
+  </div>
+  <div class="split-visual">
+    <div style="background:#1a1a2e;border-radius:10px;padding:20px">
+      <div style="font-family:'Syne',sans-serif;font-size:12px;font-weight:700;color:#fff;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px">Proyecto · Podcast BancoSeguro</div>
+      <div style="font-size:11px;color:#7c8aa5;margin-bottom:16px">Cliente: BancoSeguro S.A. · Productor ejecutivo: María González</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:16px">
+        <div style="background:#141428;border-radius:8px;padding:12px;border-top:2px solid #4ade80"><div style="font-size:9px;color:#666;margin-bottom:4px;letter-spacing:1px">INGRESOS</div><div style="font-size:16px;font-weight:700;color:#4ade80;font-family:monospace">$9M</div></div>
+        <div style="background:#141428;border-radius:8px;padding:12px;border-top:2px solid #f87171"><div style="font-size:9px;color:#666;margin-bottom:4px;letter-spacing:1px">GASTOS</div><div style="font-size:16px;font-weight:700;color:#f87171;font-family:monospace">$800K</div></div>
+        <div style="background:#141428;border-radius:8px;padding:12px;border-top:2px solid #60a5fa"><div style="font-size:9px;color:#666;margin-bottom:4px;letter-spacing:1px">ENTREGAS</div><div style="font-size:16px;font-weight:700;color:#60a5fa;font-family:monospace">3/5</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="split-section reverse">
+  <div class="split-content">
+    <p class="tag">Producciones</p>
+    <h2>Programas, episodios y auspicios con una lectura operativa clara</h2>
+    <p>Gestiona formatos recurrentes con visibilidad sobre avance, marcas asociadas, episodios y cobro relacionado.</p>
+    <div class="split-items">
+      <div class="split-item"><div class="split-item-icon">🎬</div><div><h4>Gestión de episodios</h4><p>Planifica, graba, edita y publica con estados claros y seguimiento visible.</p></div></div>
+      <div class="split-item"><div class="split-item-icon">⭐</div><div><h4>Auspicios conectados</h4><p>Relaciona marcas, vigencias, montos y documentos sin perder contexto comercial.</p></div></div>
+      <div class="split-item"><div class="split-item-icon">🧾</div><div><h4>Facturación coherente</h4><p>El cobro nace desde una base válida y conectada con la operación real.</p></div></div>
+    </div>
+  </div>
+  <div class="split-visual">
+    <div style="background:#1a1a2e;border-radius:10px;padding:20px">
+      <div style="font-family:'Syne',sans-serif;font-size:12px;font-weight:700;color:#fff;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px">Producción · Chile Emprende</div>
+      <div style="font-size:11px;color:#7c8aa5;margin-bottom:16px">Programa de TV · Canal 24H · Semanal · 2 auspicios activos</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:16px">
+        <div style="text-align:center;background:#141428;border-radius:8px;padding:10px"><div style="font-size:20px;font-weight:700;color:#fff;font-family:monospace">24</div><div style="font-size:9px;color:#666">Total Ep.</div></div>
+        <div style="text-align:center;background:#141428;border-radius:8px;padding:10px"><div style="font-size:20px;font-weight:700;color:#4ade80;font-family:monospace">12</div><div style="font-size:9px;color:#666">Publicados</div></div>
+        <div style="text-align:center;background:#141428;border-radius:8px;padding:10px"><div style="font-size:20px;font-weight:700;color:#60a5fa;font-family:monospace">2</div><div style="font-size:9px;color:#666">Auspicios</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stats-section">
+  <div class="stats-inner">
+    <h2 class="stats-title">Hecho para crecer con la complejidad real de una productora</h2>
+    <p class="stats-sub">Desde equipos que están ordenando su base hasta operaciones que ya necesitan documentos, cobros, coordinación y trazabilidad más fina.</p>
+    <div class="stats-grid">
+      <div class="stat-item"><div class="stat-num">100<span>%</span></div><div class="stat-label">Web responsiva para tener la operación disponible en cualquier dispositivo.</div></div>
+      <div class="stat-item"><div class="stat-num">0</div><div class="stat-label">Instalaciones requeridas. Todo funciona directo desde el navegador.</div></div>
+      <div class="stat-item"><div class="stat-num">5<span>+</span></div><div class="stat-label">Roles base y personalizados por empresa para ordenar la operación.</div></div>
+      <div class="stat-item"><div class="stat-num">∞</div><div class="stat-label">Escalable por empresa, módulo y equipo sin rehacer la operación.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="cta-box">
+    <div class="cta-copy">
+      <h2>¿Quieres ver este flujo aplicado a tu operación?</h2>
+      <p>Te mostramos qué parte conviene ordenar primero y cómo se conectan comercial, producción, documentos y tesorería dentro de Produ.</p>
+    </div>
+    <div class="cta-actions">
+      <a href="https://portal.produ.cl/" target="_blank" class="btn-primary">Solicitar demo</a>
+      <a href="modulos.html" class="btn-outline" style="border-color:rgba(255,255,255,.24);color:#fff">Ver módulos</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <div class="footer-logo-icon">
+        <svg viewBox="0 0 24 24" fill="#fff" width="15" height="15"><polygon points="5,3 20,12 5,21"/></svg>
+      </div>
+      <div class="footer-logo-copy">
+        <span class="footer-logo-text" style="color:#fff">produ</span>
+        <span class="footer-logo-sub">Gestión de Productoras</span>
+      </div>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="producto.html">Producto</a>
+      <a href="soluciones.html">Soluciones</a>
+      <a href="industrias.html">Industrias</a>
+      <a href="integraciones.html">Integraciones</a>
+      <a href="precios.html">Precios</a>
+      <a href="casos-de-uso.html">Casos de uso</a>
+      <a href="recursos.html">Recursos</a>
+    </div>
+    <div class="footer-affiliate">
+      <div class="footer-copy">© 2026 Produ. Operación audiovisual conectada.</div>
+      <img src="/assets/chile-partner.png" alt="Chile partner" />
+    </div>
+  </div>
+</footer>
+</body>
+</html>
