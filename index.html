@@ -127,6 +127,34 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.84);backdrop-
 .flow-card p{font-size:14px;line-height:1.68;color:#667085}
 .flow-card::after{content:"";position:absolute;right:-10px;top:50%;width:20px;height:2px;background:linear-gradient(90deg,#d6dbea,#eef1f8);transform:translateY(-50%)}
 .flow-card:last-child::after{display:none}
+.visual-proof{padding:8px 5% 92px;max-width:1200px;margin:0 auto}
+.visual-proof-shell{display:grid;grid-template-columns:1.02fr .98fr;gap:20px}
+.visual-proof-card{background:#fff;border:1.5px solid #e7ebf4;border-radius:28px;box-shadow:0 18px 40px rgba(15,23,42,.05);overflow:hidden}
+.visual-proof-media{padding:24px;background:linear-gradient(180deg,#162338 0%,#0f1728 100%)}
+.visual-proof-ui{display:grid;grid-template-columns:1.05fr .95fr;gap:14px}
+.visual-proof-stage{background:linear-gradient(180deg,#f8fbff 0%,#edf3ff 100%);border-radius:20px;padding:18px;border:1px solid #dce7fb}
+.visual-proof-stage.dark{background:linear-gradient(180deg,#18253c 0%,#121b2d 100%);border-color:#243149}
+.visual-proof-stage h3{font-size:17px;font-weight:800;letter-spacing:-.4px;color:#152033;margin-bottom:8px}
+.visual-proof-stage.dark h3{color:#fff}
+.visual-proof-stage p{font-size:13px;line-height:1.6;color:#5f6b84}
+.visual-proof-stage.dark p{color:#b9c4d8}
+.visual-proof-stack{display:grid;gap:12px}
+.visual-proof-mini{padding:16px;border-radius:18px;background:#fff;border:1px solid #e3e9f4}
+.visual-proof-mini.dark{background:#111a2c;border-color:#22304a}
+.visual-proof-mini-label{font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#7a88a3;margin-bottom:8px}
+.visual-proof-mini.dark .visual-proof-mini-label{color:#8da0bf}
+.visual-proof-mini-value{font-size:24px;font-weight:800;letter-spacing:-1px;color:#152033}
+.visual-proof-mini.dark .visual-proof-mini-value{color:#fff}
+.visual-proof-mini-copy{font-size:12px;line-height:1.55;color:#62718c;margin-top:6px}
+.visual-proof-mini.dark .visual-proof-mini-copy{color:#afbdd5}
+.visual-proof-copy{padding:30px}
+.visual-proof-copy h3{font-size:28px;font-weight:800;letter-spacing:-1.2px;color:#152033;margin-bottom:12px}
+.visual-proof-copy p{font-size:15px;line-height:1.74;color:#5f6b84;margin-bottom:20px}
+.visual-proof-points{display:grid;gap:10px}
+.visual-proof-points div{padding:14px 16px;border-radius:16px;background:#f7f9fd;border:1px solid #e8edf5;font-size:14px;line-height:1.55;color:#22314a}
+.visual-proof-photo{margin-top:18px;min-height:180px;border-radius:22px;background-size:cover;background-position:center;border:1px solid #dbe5f3;overflow:hidden;position:relative}
+.visual-proof-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,.04) 0%,rgba(15,23,42,.32) 100%)}
+.visual-proof-photo span{position:absolute;left:18px;right:18px;bottom:16px;z-index:1;font-size:13px;font-weight:700;line-height:1.55;color:#fff}
 .integrations-preview{padding:96px 5%;max-width:1200px;margin:0 auto}
 .integrations-preview-box{display:grid;grid-template-columns:1.05fr .95fr;gap:22px;align-items:stretch}
 .integrations-copy-card,.integrations-stack{background:#fff}
@@ -237,6 +265,7 @@ footer{background:#1a1a2e;padding:64px 5% 40px;margin:0;border-top:1px solid #ff
   .features-grid{grid-template-columns:1fr}
   .flow-grid{grid-template-columns:1fr}
   .flow-card::after{display:none}
+  .visual-proof-shell,.visual-proof-ui{grid-template-columns:1fr}
   .split-section{grid-template-columns:1fr;gap:40px}
   .split-section.reverse{direction:ltr}
   .stats-grid{grid-template-columns:1fr 1fr;gap:24px}
@@ -531,6 +560,90 @@ footer{background:#1a1a2e;padding:64px 5% 40px;margin:0;border-top:1px solid #ff
   </div>
   <div style="margin-top:28px">
     <a href="como-funciona.html" class="btn-primary-lg">Ver recorrido completo →</a>
+  </div>
+</section>
+
+<section class="visual-proof">
+  <p class="section-tag">Cómo se ve Produ</p>
+  <h2 class="section-title">Más apoyo visual, más contexto y menos pantallas mudas</h2>
+  <p class="section-desc">La experiencia de Produ está pensada para que un equipo creativo y operativo lea rápido qué está pasando, qué sigue y dónde están los puntos sensibles del trabajo.</p>
+  <div class="visual-proof-shell">
+    <article class="visual-proof-card">
+      <div class="visual-proof-media">
+        <div class="visual-proof-ui">
+          <div class="visual-proof-stage">
+            <h3>Vista ejecutiva del mes</h3>
+            <p>Clientes, piezas, fechas y cobranza conviven en una sola lectura para que dirección y operación compartan el mismo contexto.</p>
+            <div class="visual-proof-points" style="margin-top:16px">
+              <div>12 piezas activas · 3 clientes prioritarios · 2 cobros esta semana</div>
+              <div>Producción, contenidos y documentos ordenados bajo el mismo proyecto</div>
+            </div>
+          </div>
+          <div class="visual-proof-stack">
+            <div class="visual-proof-mini">
+              <div class="visual-proof-mini-label">Ingresos proyectados</div>
+              <div class="visual-proof-mini-value">$14.8M</div>
+              <div class="visual-proof-mini-copy">Facturas y órdenes de compra conectadas a la operación real.</div>
+            </div>
+            <div class="visual-proof-mini dark">
+              <div class="visual-proof-mini-label">Equipo en curso</div>
+              <div class="visual-proof-mini-value">8 personas</div>
+              <div class="visual-proof-mini-copy">Responsables, entregas y comentarios sin perder el hilo.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="visual-proof-copy">
+        <h3>Una superficie que ayuda a coordinar mejor</h3>
+        <p>La plataforma no se limita a guardar cosas. Está diseñada para priorizar la lectura de negocio y la ejecución diaria con un lenguaje visual más claro y comercial.</p>
+        <div class="visual-proof-points">
+          <div>Jerarquía visual pensada para decisiones rápidas.</div>
+          <div>Contexto compartido entre comercial, operación y finanzas.</div>
+          <div>Menos tiempo buscando datos, más tiempo operando.</div>
+        </div>
+        <div class="visual-proof-photo" style="background-image:url('https://images.unsplash.com/photo-1516321165247-4aa89a48be28?auto=format&fit=crop&w=1200&q=80');">
+          <span>Produ acompaña equipos que coordinan personas, entregas, reuniones y decisiones en tiempo real.</span>
+        </div>
+      </div>
+    </article>
+    <article class="visual-proof-card">
+      <div class="visual-proof-media" style="background:linear-gradient(180deg,#f8fbff 0%,#eef4ff 100%)">
+        <div class="visual-proof-ui">
+          <div class="visual-proof-stage dark">
+            <h3>Producción y contenidos</h3>
+            <p>Piezas por mes, responsables, feedback y estado de avance con una lectura mucho más viva del trabajo real.</p>
+            <div class="visual-proof-points" style="margin-top:16px">
+              <div style="background:#ffffff10;border-color:#ffffff14;color:#d9e3f5">Abril · 6 piezas aprobadas · 2 en revisión · 1 pendiente</div>
+              <div style="background:#ffffff10;border-color:#ffffff14;color:#d9e3f5">Historial de comentarios y seguimiento sobre cada entrega</div>
+            </div>
+          </div>
+          <div class="visual-proof-stack">
+            <div class="visual-proof-mini">
+              <div class="visual-proof-mini-label">CRM activo</div>
+              <div class="visual-proof-mini-value">18 oportunidades</div>
+              <div class="visual-proof-mini-copy">Clientes y presupuesto conectados antes de abrir el proyecto.</div>
+            </div>
+            <div class="visual-proof-mini">
+              <div class="visual-proof-mini-label">Tesorería visible</div>
+              <div class="visual-proof-mini-value">9 documentos</div>
+              <div class="visual-proof-mini-copy">Cobranza y pagos viviendo dentro del flujo, no afuera.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="visual-proof-copy">
+        <h3>Más cercano a una plataforma moderna de verdad</h3>
+        <p>Queremos que la web deje ver que Produ no es solo funcional. También puede sentirse claro, moderno y confiable para un equipo que quiere escalar con más orden.</p>
+        <div class="visual-proof-points">
+          <div>Pilares simples para entender la plataforma rápido.</div>
+          <div>Mockups y escenas más expresivas para apoyar la venta.</div>
+          <div>Una imagen más sólida para branding y confianza comercial.</div>
+        </div>
+        <div class="visual-proof-photo" style="background-image:url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80');">
+          <span>Una experiencia pensada para equipos que venden, producen, entregan y cobran sin salir del mismo sistema.</span>
+        </div>
+      </div>
+    </article>
   </div>
 </section>
 <!-- MODULES -->

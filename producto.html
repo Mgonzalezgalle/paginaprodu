@@ -29,6 +29,16 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.84);backdrop-
 .hero-shell{display:grid;grid-template-columns:1.1fr .9fr;gap:22px;align-items:stretch}
 .hero-copy,.hero-side{background:#fff;border:1.5px solid #e6ebf4;border-radius:32px;box-shadow:0 24px 54px rgba(15,23,42,.06)}
 .hero-copy{padding:44px}
+.hero-visual{margin-top:28px;display:grid;grid-template-columns:1.18fr .82fr;gap:14px}
+.hero-photo{min-height:220px;border-radius:24px;background-size:cover;background-position:center;position:relative;overflow:hidden;border:1px solid #dfe7f4}
+.hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,.02) 0%,rgba(15,23,42,.24) 100%)}
+.hero-photo-copy{position:absolute;left:18px;right:18px;bottom:18px;z-index:1;color:#fff}
+.hero-photo-copy strong{display:block;font-size:18px;font-weight:800;letter-spacing:-.4px;margin-bottom:6px}
+.hero-photo-copy span{display:block;font-size:13px;line-height:1.55;color:#e8eef9}
+.hero-photo-stack{display:grid;gap:14px}
+.hero-photo-mini{min-height:103px;border-radius:22px;background-size:cover;background-position:center;position:relative;overflow:hidden;border:1px solid #dfe7f4}
+.hero-photo-mini::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,.08) 0%,rgba(15,23,42,.46) 100%)}
+.hero-photo-mini span{position:absolute;left:16px;right:16px;bottom:14px;z-index:1;font-size:13px;font-weight:700;line-height:1.45;color:#fff}
 .hero-badge,.section-tag,.mini-tag{display:inline-flex;align-items:center;padding:8px 14px;border-radius:999px;background:#eef3ff;color:#37549a;font-size:12px;font-weight:800;letter-spacing:.5px;text-transform:uppercase}
 .hero h1{font-family:'Inter',sans-serif;font-size:clamp(44px,5vw,68px);line-height:1.02;letter-spacing:-2.8px;margin:18px 0;color:#152033}
 .hero p{font-size:18px;line-height:1.76;color:#5f6b84;max-width:680px}
@@ -59,6 +69,23 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.84);backdrop-
 .story-card h3{font-family:'Inter',sans-serif;font-size:22px;font-weight:800;letter-spacing:-.6px;margin:12px 0 10px}
 .story-card p{font-size:14px;line-height:1.7;color:#667085}
 .story-card .mini-tag{background:#f2f4f8;color:#667085}
+.visual-lab{display:grid;grid-template-columns:1.05fr .95fr;gap:18px}
+.visual-lab-card{padding:28px;border-radius:30px;background:#fff;border:1.5px solid #e7ebf4;box-shadow:0 18px 40px rgba(15,23,42,.05)}
+.visual-lab-stage{padding:22px;border-radius:22px;background:linear-gradient(180deg,#162338 0%,#0f1728 100%);border:1px solid #22314a}
+.visual-lab-stage.light{background:linear-gradient(180deg,#f8fbff 0%,#eef4ff 100%);border-color:#dce7fb}
+.visual-lab-stage h3{font-size:22px;font-weight:800;letter-spacing:-.7px;margin-bottom:10px;color:#fff}
+.visual-lab-stage.light h3{color:#152033}
+.visual-lab-stage p{font-size:14px;line-height:1.72;color:#b7c0d3}
+.visual-lab-stage.light p{color:#5f6b84}
+.visual-lab-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}
+.visual-lab-mini{padding:16px;border-radius:18px;background:#ffffff0d;border:1px solid #ffffff14}
+.visual-lab-stage.light .visual-lab-mini{background:#fff;border-color:#dfe7f6}
+.visual-lab-mini strong{display:block;font-size:22px;font-weight:800;letter-spacing:-1px;color:#fff}
+.visual-lab-stage.light .visual-lab-mini strong{color:#152033}
+.visual-lab-mini span{display:block;font-size:12px;line-height:1.55;color:#b6c4db;margin-top:6px}
+.visual-lab-stage.light .visual-lab-mini span{color:#62718c}
+.visual-lab-points{display:grid;gap:10px;margin-top:18px}
+.visual-lab-points div{padding:14px 16px;border-radius:16px;background:#f7f9fd;border:1px solid #e8edf5;font-size:14px;line-height:1.55;color:#22314a}
 .cta{max-width:1240px;margin:0 auto 84px;padding:0 5%}
 .cta-box{padding:68px 46px;border-radius:34px;background:linear-gradient(135deg,#152033 0%,#1f2d46 100%);color:#fff;display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;box-shadow:0 30px 70px rgba(12,14,28,.22)}
 .cta-box h2{font-family:'Inter',sans-serif;font-size:clamp(30px,4vw,48px);letter-spacing:-1.5px;margin-bottom:12px}
@@ -77,8 +104,8 @@ footer{background:#1a1a2e;padding:64px 5% 40px;margin:0;border-top:1px solid #ff
 .footer-bottom p{font-size:13px;color:#555}
 .footer-verify{display:flex;flex-direction:column;align-items:flex-end;gap:10px;font-size:13px;color:#7f8594;line-height:1.6;max-width:620px;text-align:right}
 .footer-verify a{color:#d7e6ff;text-decoration:underline;text-underline-offset:3px}
-@media(max-width:1080px){.hero-shell,.pillar-grid,.story-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:760px){.nav-links,.nav-cta .btn-outline{display:none}.hero,.section,.cta{padding-left:20px;padding-right:20px}.hero-shell,.pillar-grid,.story-grid,.hero-points{grid-template-columns:1fr}.hero-copy,.hero-side,.cta-box{padding:28px 22px}.footer-top{grid-template-columns:1fr 1fr;gap:32px}}
+@media(max-width:1080px){.hero-shell,.pillar-grid,.story-grid,.visual-lab{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.nav-links,.nav-cta .btn-outline{display:none}.hero,.section,.cta{padding-left:20px;padding-right:20px}.hero-shell,.pillar-grid,.story-grid,.hero-points,.visual-lab,.visual-lab-grid,.hero-visual{grid-template-columns:1fr}.hero-copy,.hero-side,.cta-box{padding:28px 22px}.footer-top{grid-template-columns:1fr 1fr;gap:32px}}
 </style>
 </head>
 <body>
@@ -115,6 +142,22 @@ footer{background:#1a1a2e;padding:64px 5% 40px;margin:0;border-top:1px solid #ff
         <div class="hero-point"><strong>Crece por etapas</strong><span>Activa nuevas capacidades cuando tu operación realmente las necesita.</span></div>
         <div class="hero-point"><strong>Conecta áreas</strong><span>Lo comercial alimenta la operación y la operación sostiene documentos, cobros y pagos.</span></div>
         <div class="hero-point"><strong>Acompaña crecimiento</strong><span>Sirve para equipos que están ordenando su base y para operaciones más complejas.</span></div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-photo" style="background-image:url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=80');">
+          <div class="hero-photo-copy">
+            <strong>Equipos creativos con más claridad</strong>
+            <span>Produ ayuda a ordenar producción, contenido y seguimiento sin apagar la energía del trabajo creativo.</span>
+          </div>
+        </div>
+        <div class="hero-photo-stack">
+          <div class="hero-photo-mini" style="background-image:url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=80');">
+            <span>Comercial, operación y finanzas leyendo la misma realidad.</span>
+          </div>
+          <div class="hero-photo-mini" style="background-image:url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80');">
+            <span>Más contexto para coordinar campañas, piezas y entregas.</span>
+          </div>
+        </div>
       </div>
     </div>
     <aside class="hero-side">
@@ -154,6 +197,46 @@ footer{background:#1a1a2e;padding:64px 5% 40px;margin:0;border-top:1px solid #ff
     <article class="story-card"><div class="mini-tag">Menos fricción</div><h3>Una sola fuente de contexto</h3><p>La información no se pierde entre Excel, correo y conversaciones sueltas. El equipo trabaja con la misma base.</p></article>
     <article class="story-card"><div class="mini-tag">Más orden</div><h3>Procesos más claros</h3><p>Se entiende mejor qué sigue, quién está a cargo y qué documentos sostienen cada parte del trabajo.</p></article>
     <article class="story-card"><div class="mini-tag">Más visibilidad</div><h3>Mejores decisiones</h3><p>Comercial, operación y finanzas dejan de mirar mundos separados y pasan a leer la misma operación.</p></article>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <div class="section-tag">Apoyo visual</div>
+    <h2 class="section-title">Produ también puede verse tan claro como trabaja</h2>
+    <p class="section-desc">Queremos que la página muestre mejor la sensación del producto: una plataforma que ordena mucho, pero sin verse pesada ni confusa.</p>
+  </div>
+  <div class="visual-lab">
+    <article class="visual-lab-card">
+      <div class="visual-lab-stage">
+        <h3>Una lectura ejecutiva del negocio</h3>
+        <p>Clientes, presupuestos, proyectos y finanzas con una visual más editorial para que la plataforma se sienta viva y confiable.</p>
+        <div class="visual-lab-grid">
+          <div class="visual-lab-mini"><strong>12</strong><span>clientes activos con seguimiento comercial y operativo conectado.</span></div>
+          <div class="visual-lab-mini"><strong>$14.8M</strong><span>volumen visible entre facturación, ordenes y cobranza.</span></div>
+        </div>
+      </div>
+      <div class="visual-lab-points">
+        <div>Una misma lectura para founders, comercial y operación.</div>
+        <div>Más soporte visual para entender el valor del sistema al primer vistazo.</div>
+        <div>Una imagen más madura para vender mejor y generar confianza.</div>
+      </div>
+    </article>
+    <article class="visual-lab-card">
+      <div class="visual-lab-stage light">
+        <h3>Operación y contenidos con más ritmo</h3>
+        <p>Piezas por mes, estados, responsables, comentarios y entregables organizados de forma mucho más fácil de leer para un equipo creativo.</p>
+        <div class="visual-lab-grid">
+          <div class="visual-lab-mini"><strong>6</strong><span>piezas aprobadas este mes con historial y comentarios visibles.</span></div>
+          <div class="visual-lab-mini"><strong>3</strong><span>clientes con campañas activas y trabajo en seguimiento.</span></div>
+        </div>
+      </div>
+      <div class="visual-lab-points">
+        <div>Más cercanía con el estilo de una startup sólida, no una página corporativa genérica.</div>
+        <div>Mejor mezcla entre producto, branding y claridad comercial.</div>
+        <div>Una base ideal para seguir sumando mockups y capturas reales del sistema.</div>
+      </div>
+    </article>
   </div>
 </section>
 
