@@ -152,9 +152,29 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.84);backdrop-
 .visual-proof-copy p{font-size:15px;line-height:1.74;color:#5f6b84;margin-bottom:20px}
 .visual-proof-points{display:grid;gap:10px}
 .visual-proof-points div{padding:14px 16px;border-radius:16px;background:#f7f9fd;border:1px solid #e8edf5;font-size:14px;line-height:1.55;color:#22314a}
-.visual-proof-photo{margin-top:18px;min-height:180px;border-radius:22px;background-size:cover;background-position:center;border:1px solid #dbe5f3;overflow:hidden;position:relative}
-.visual-proof-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,.04) 0%,rgba(15,23,42,.32) 100%)}
-.visual-proof-photo span{position:absolute;left:18px;right:18px;bottom:16px;z-index:1;font-size:13px;font-weight:700;line-height:1.55;color:#fff}
+.visual-proof-screen{margin-top:18px;border-radius:22px;border:1px solid #dbe5f3;overflow:hidden;background:linear-gradient(180deg,#ffffff 0%,#f7faff 100%);box-shadow:0 20px 36px rgba(15,23,42,.06);padding:14px}
+.visual-proof-screen.dark{background:linear-gradient(180deg,#172136 0%,#101827 100%);border-color:#20324b}
+.visual-proof-screen-window{border-radius:16px;overflow:hidden;background:#0f1728}
+.visual-proof-screen-head{padding:10px 14px;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(180deg,#162036 0%,#111827 100%);border-bottom:1px solid #ffffff10}
+.visual-proof-screen-body{padding:14px;display:grid;gap:10px;background:linear-gradient(180deg,#0f1728 0%,#121d33 100%)}
+.visual-proof-screen-body.light{background:linear-gradient(180deg,#f8fbff 0%,#edf3fd 100%)}
+.visual-proof-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.visual-proof-kpi{padding:12px;border-radius:14px;background:#ffffff08;border:1px solid #ffffff10}
+.visual-proof-screen-body.light .visual-proof-kpi{background:#fff;border-color:#dfe7f4}
+.visual-proof-kpi strong{display:block;font-size:18px;font-weight:800;color:#fff;margin-bottom:4px}
+.visual-proof-screen-body.light .visual-proof-kpi strong{color:#152033}
+.visual-proof-kpi span{display:block;font-size:11px;line-height:1.45;color:#aab8cf}
+.visual-proof-screen-body.light .visual-proof-kpi span{color:#66748d}
+.visual-proof-list-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:10px}
+.visual-proof-list-card{padding:12px;border-radius:14px;background:#ffffff08;border:1px solid #ffffff10}
+.visual-proof-screen-body.light .visual-proof-list-card{background:#fff;border-color:#dfe7f4}
+.visual-proof-list-card h4{font-size:13px;font-weight:800;color:#fff;margin-bottom:8px}
+.visual-proof-screen-body.light .visual-proof-list-card h4{color:#152033}
+.visual-proof-list-card ul{list-style:none;display:grid;gap:7px}
+.visual-proof-list-card li{font-size:11px;line-height:1.5;color:#dce5f6}
+.visual-proof-screen-body.light .visual-proof-list-card li{color:#5f6b84}
+.visual-proof-list-card li strong{color:#fff}
+.visual-proof-screen-body.light .visual-proof-list-card li strong{color:#152033}
 .integrations-preview{padding:96px 5%;max-width:1200px;margin:0 auto}
 .integrations-preview-box{display:grid;grid-template-columns:1.05fr .95fr;gap:22px;align-items:stretch}
 .integrations-copy-card,.integrations-stack{background:#fff}
@@ -600,8 +620,38 @@ footer{background:#1a1a2e;padding:64px 5% 40px;margin:0;border-top:1px solid #ff
           <div>Contexto compartido entre comercial, operación y finanzas.</div>
           <div>Menos tiempo buscando datos, más tiempo operando.</div>
         </div>
-        <div class="visual-proof-photo" style="background-image:url('https://images.unsplash.com/photo-1516321165247-4aa89a48be28?auto=format&fit=crop&w=1200&q=80');">
-          <span>Produ acompaña equipos que coordinan personas, entregas, reuniones y decisiones en tiempo real.</span>
+        <div class="visual-proof-screen">
+          <div class="visual-proof-screen-window">
+            <div class="visual-proof-screen-head">
+              <div class="hero-screen-dots"><span></span><span></span><span></span></div>
+              <div class="hero-screen-label">Base · Comercial</div>
+            </div>
+            <div class="visual-proof-screen-body light">
+              <div class="visual-proof-row">
+                <div class="visual-proof-kpi"><strong>18</strong><span>oportunidades en seguimiento.</span></div>
+                <div class="visual-proof-kpi"><strong>6</strong><span>presupuestos enviados.</span></div>
+                <div class="visual-proof-kpi"><strong>4</strong><span>cuentas con foco esta semana.</span></div>
+              </div>
+              <div class="visual-proof-list-grid">
+                <div class="visual-proof-list-card">
+                  <h4>Pipeline comercial</h4>
+                  <ul>
+                    <li><strong>Play Media</strong> listo para enviar propuesta.</li>
+                    <li><strong>North Studio</strong> reunión agendada para cierre.</li>
+                    <li><strong>Canal Sur</strong> feedback pendiente por revisar.</li>
+                  </ul>
+                </div>
+                <div class="visual-proof-list-card">
+                  <h4>Próximos hitos</h4>
+                  <ul>
+                    <li>2 demos esta semana.</li>
+                    <li>1 contrato en preparación.</li>
+                    <li>3 proyectos por activar.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </article>
@@ -638,8 +688,38 @@ footer{background:#1a1a2e;padding:64px 5% 40px;margin:0;border-top:1px solid #ff
           <div>Mockups y escenas más expresivas para apoyar la venta.</div>
           <div>Una imagen más sólida para branding y confianza comercial.</div>
         </div>
-        <div class="visual-proof-photo" style="background-image:url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80');">
-          <span>Una experiencia pensada para equipos que venden, producen, entregan y cobran sin salir del mismo sistema.</span>
+        <div class="visual-proof-screen dark">
+          <div class="visual-proof-screen-window">
+            <div class="visual-proof-screen-head">
+              <div class="hero-screen-dots"><span></span><span></span><span></span></div>
+              <div class="hero-screen-label">Operación · Finanzas</div>
+            </div>
+            <div class="visual-proof-screen-body">
+              <div class="visual-proof-row">
+                <div class="visual-proof-kpi"><strong>8</strong><span>piezas activas con comentarios.</span></div>
+                <div class="visual-proof-kpi"><strong>1</strong><span>factura por cobrar esta semana.</span></div>
+                <div class="visual-proof-kpi"><strong>2</strong><span>pagos pendientes de seguimiento.</span></div>
+              </div>
+              <div class="visual-proof-list-grid">
+                <div class="visual-proof-list-card">
+                  <h4>Producción mensual</h4>
+                  <ul>
+                    <li><strong>Mayo</strong> 6 piezas aprobadas y 2 en revisión.</li>
+                    <li><strong>Campaña Terra</strong> pendiente feedback final.</li>
+                    <li><strong>Programa Norte</strong> episodio listo para publicar.</li>
+                  </ul>
+                </div>
+                <div class="visual-proof-list-card">
+                  <h4>Control financiero</h4>
+                  <ul>
+                    <li>Órdenes vinculadas a facturación.</li>
+                    <li>Cobranza visible desde el flujo operativo.</li>
+                    <li>Documentos y pagos dentro del mismo contexto.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </article>

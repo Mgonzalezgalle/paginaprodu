@@ -30,15 +30,37 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.84);backdrop-
 .hero-copy,.hero-side{background:#fff;border:1.5px solid #e6ebf4;border-radius:32px;box-shadow:0 24px 54px rgba(15,23,42,.06)}
 .hero-copy{padding:44px}
 .hero-visual{margin-top:28px;display:grid;grid-template-columns:1.18fr .82fr;gap:14px}
-.hero-photo{min-height:220px;border-radius:24px;background-size:cover;background-position:center;position:relative;overflow:hidden;border:1px solid #dfe7f4}
-.hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,.02) 0%,rgba(15,23,42,.24) 100%)}
-.hero-photo-copy{position:absolute;left:18px;right:18px;bottom:18px;z-index:1;color:#fff}
-.hero-photo-copy strong{display:block;font-size:18px;font-weight:800;letter-spacing:-.4px;margin-bottom:6px}
-.hero-photo-copy span{display:block;font-size:13px;line-height:1.55;color:#e8eef9}
-.hero-photo-stack{display:grid;gap:14px}
-.hero-photo-mini{min-height:103px;border-radius:22px;background-size:cover;background-position:center;position:relative;overflow:hidden;border:1px solid #dfe7f4}
-.hero-photo-mini::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,.08) 0%,rgba(15,23,42,.46) 100%)}
-.hero-photo-mini span{position:absolute;left:16px;right:16px;bottom:14px;z-index:1;font-size:13px;font-weight:700;line-height:1.45;color:#fff}
+.hero-screen{min-height:220px;border-radius:24px;overflow:hidden;border:1px solid #dfe7f4;background:linear-gradient(180deg,#ffffff 0%,#f6f9fe 100%);box-shadow:0 22px 42px rgba(15,23,42,.08);padding:16px}
+.hero-screen-window{height:100%;border-radius:18px;background:#0f1728;overflow:hidden;display:grid;grid-template-rows:auto 1fr}
+.hero-screen-top{padding:10px 14px;border-bottom:1px solid #ffffff10;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(180deg,#162036 0%,#111827 100%)}
+.hero-screen-dots{display:flex;gap:6px}
+.hero-screen-dots span{width:8px;height:8px;border-radius:50%;background:#ffffff33}
+.hero-screen-label{font-size:11px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:#9fb0cc}
+.hero-screen-body{padding:14px;display:grid;grid-template-columns:1.2fr .8fr;gap:12px;background:linear-gradient(180deg,#0f1728 0%,#121d33 100%)}
+.hero-screen-panel{border-radius:14px;padding:14px;background:#ffffff08;border:1px solid #ffffff12}
+.hero-screen-panel h4{font-size:15px;font-weight:800;letter-spacing:-.3px;color:#fff;margin-bottom:6px}
+.hero-screen-panel p{font-size:12px;line-height:1.55;color:#9fb0cc}
+.hero-screen-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px}
+.hero-screen-stat{padding:10px;border-radius:12px;background:#ffffff08;border:1px solid #ffffff10}
+.hero-screen-stat strong{display:block;font-size:18px;font-weight:800;color:#fff;margin-bottom:4px}
+.hero-screen-stat span{display:block;font-size:11px;line-height:1.45;color:#9fb0cc}
+.hero-screen-list{display:grid;gap:8px}
+.hero-screen-list div{padding:10px 12px;border-radius:12px;background:#ffffff08;border:1px solid #ffffff10;font-size:11px;line-height:1.45;color:#dbe6fb}
+.hero-screen-list strong{display:block;font-size:12px;color:#fff;margin-bottom:2px}
+.hero-screen-stack{display:grid;gap:14px}
+.hero-screen-mini{min-height:103px;border-radius:22px;overflow:hidden;border:1px solid #dfe7f4;background:linear-gradient(180deg,#ffffff 0%,#f7faff 100%);box-shadow:0 18px 32px rgba(15,23,42,.07);padding:12px}
+.hero-screen-mini.dark{background:linear-gradient(180deg,#172136 0%,#101827 100%);border-color:#20324b}
+.hero-screen-mini-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.hero-screen-mini-tag{font-size:10px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:#617493}
+.hero-screen-mini.dark .hero-screen-mini-tag{color:#a7bad7}
+.hero-screen-mini strong{display:block;font-size:18px;font-weight:800;letter-spacing:-.5px;color:#152033;margin-bottom:4px}
+.hero-screen-mini.dark strong{color:#fff}
+.hero-screen-mini p{font-size:11px;line-height:1.5;color:#667085}
+.hero-screen-mini.dark p{color:#b9c8df}
+.hero-screen-bars{display:grid;gap:7px;margin-top:10px}
+.hero-screen-bars span{display:block;height:8px;border-radius:999px;background:linear-gradient(90deg,#2b6df6 0%,#7dc2ff 100%)}
+.hero-screen-bars span:nth-child(2){width:72%;background:linear-gradient(90deg,#4fd1c5 0%,#86efac 100%)}
+.hero-screen-bars span:nth-child(3){width:54%;background:linear-gradient(90deg,#f6c94c 0%,#ffd978 100%)}
 .hero-badge,.section-tag,.mini-tag{display:inline-flex;align-items:center;padding:8px 14px;border-radius:999px;background:#eef3ff;color:#37549a;font-size:12px;font-weight:800;letter-spacing:.5px;text-transform:uppercase}
 .hero h1{font-family:'Inter',sans-serif;font-size:clamp(44px,5vw,68px);line-height:1.02;letter-spacing:-2.8px;margin:18px 0;color:#152033}
 .hero p{font-size:18px;line-height:1.76;color:#5f6b84;max-width:680px}
@@ -143,18 +165,42 @@ footer{background:#1a1a2e;padding:64px 5% 40px;margin:0;border-top:1px solid #ff
         <div class="hero-point"><strong>Acompaña crecimiento</strong><span>Sirve para equipos que están ordenando su base y para operaciones más complejas.</span></div>
       </div>
       <div class="hero-visual">
-        <div class="hero-photo" style="background-image:url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=80');">
-          <div class="hero-photo-copy">
-            <strong>Equipos creativos con más claridad</strong>
-            <span>Produ ayuda a ordenar producción, contenido y seguimiento sin apagar la energía del trabajo creativo.</span>
+        <div class="hero-screen">
+          <div class="hero-screen-window">
+            <div class="hero-screen-top">
+              <div class="hero-screen-dots"><span></span><span></span><span></span></div>
+              <div class="hero-screen-label">Vista general · Produ</div>
+            </div>
+            <div class="hero-screen-body">
+              <div class="hero-screen-panel">
+                <h4>Una lectura clara del negocio</h4>
+                <p>Dashboard, proyectos, documentos y actividad reciente conviviendo en una misma vista.</p>
+                <div class="hero-screen-stats">
+                  <div class="hero-screen-stat"><strong>12</strong><span>marcas y cuentas activas.</span></div>
+                  <div class="hero-screen-stat"><strong>$14.8M</strong><span>monto visible en emisión.</span></div>
+                  <div class="hero-screen-stat"><strong>8</strong><span>frentes en ejecución.</span></div>
+                  <div class="hero-screen-stat"><strong>3</strong><span>alertas por revisar hoy.</span></div>
+                </div>
+              </div>
+              <div class="hero-screen-list">
+                <div><strong>CRM</strong>2 oportunidades listas para enviar propuesta.</div>
+                <div><strong>Contenidos</strong>6 piezas aprobadas y 2 en revisión este mes.</div>
+                <div><strong>Tesorería</strong>1 factura pendiente y 2 pagos por registrar.</div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="hero-photo-stack">
-          <div class="hero-photo-mini" style="background-image:url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=80');">
-            <span>Comercial, operación y finanzas leyendo la misma realidad.</span>
+        <div class="hero-screen-stack">
+          <div class="hero-screen-mini">
+            <div class="hero-screen-mini-top"><span class="hero-screen-mini-tag">Contenidos</span><span class="hero-screen-mini-tag">Mayo</span></div>
+            <strong>8 piezas</strong>
+            <p>La carga mensual se entiende rápido y cada entrega queda con responsable, fecha y seguimiento.</p>
+            <div class="hero-screen-bars"><span></span><span></span><span></span></div>
           </div>
-          <div class="hero-photo-mini" style="background-image:url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80');">
-            <span>Más contexto para coordinar campañas, piezas y entregas.</span>
+          <div class="hero-screen-mini dark">
+            <div class="hero-screen-mini-top"><span class="hero-screen-mini-tag">Finanzas</span><span class="hero-screen-mini-tag">Resumen</span></div>
+            <strong>$4.9M emitidos</strong>
+            <p>Facturación, órdenes y cobros dentro del mismo flujo, no en herramientas separadas.</p>
           </div>
         </div>
       </div>
@@ -209,9 +255,9 @@ footer{background:#1a1a2e;padding:64px 5% 40px;margin:0;border-top:1px solid #ff
     <article class="visual-lab-card">
       <div class="visual-lab-stage">
         <h3>Una lectura ejecutiva del negocio</h3>
-        <p>Clientes, presupuestos, proyectos y finanzas con una visual más editorial para que la plataforma se sienta viva y confiable.</p>
+        <p>Presupuestos, proyectos y finanzas con una visual más editorial para que la plataforma se sienta viva y confiable.</p>
         <div class="visual-lab-grid">
-          <div class="visual-lab-mini"><strong>12</strong><span>clientes activos con seguimiento comercial y operativo conectado.</span></div>
+          <div class="visual-lab-mini"><strong>12</strong><span>cuentas activas con seguimiento comercial y operativo conectado.</span></div>
           <div class="visual-lab-mini"><strong>$14.8M</strong><span>volumen visible entre facturación, ordenes y cobranza.</span></div>
         </div>
       </div>
@@ -227,7 +273,7 @@ footer{background:#1a1a2e;padding:64px 5% 40px;margin:0;border-top:1px solid #ff
         <p>Piezas por mes, estados, responsables, comentarios y entregables organizados de forma mucho más fácil de leer para un equipo creativo.</p>
         <div class="visual-lab-grid">
           <div class="visual-lab-mini"><strong>6</strong><span>piezas aprobadas este mes con historial y comentarios visibles.</span></div>
-          <div class="visual-lab-mini"><strong>3</strong><span>clientes con campañas activas y trabajo en seguimiento.</span></div>
+          <div class="visual-lab-mini"><strong>3</strong><span>marcas con campañas activas y trabajo en seguimiento.</span></div>
         </div>
       </div>
       <div class="visual-lab-points">
