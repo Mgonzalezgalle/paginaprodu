@@ -6,6 +6,7 @@
 <link rel="icon" type="image/png" href="/favicon.png">
 <title>Integraciones — Produ</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/mobile-nav.css">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -99,12 +100,46 @@ footer{background:#1a1a2e;padding:48px 5% 32px}
       <a href="precios.html">Precios</a>
       <div class="nav-item-resources"><button class="nav-menu-trigger" type="button">Recursos</button><div class="nav-mega"><div class="nav-mega-intro"><h3>Recursos</h3><p>Conoce el mundo Produ desde adentro: aliados, integraciones y materiales pensados para entender mejor cómo crece la plataforma.</p></div><div class="nav-mega-grid"><a class="nav-mega-link" href="recursos.html"><strong>Biblioteca</strong><span>El punto de entrada a los recursos que acompañan a Produ.</span></a><a class="nav-mega-link" href="partners.html"><strong>Partners</strong><span>Explora la red de aliados y las oportunidades de colaboración.</span></a><a class="nav-mega-link" href="integraciones.html"><strong>Integraciones</strong><span>Revisa las conexiones disponibles para cobros, agenda y documentos.</span></a><a class="nav-mega-link" href="agenda-demo.html"><strong>Agenda demo</strong><span>Conversemos sobre qué parte de tu operación conviene ordenar primero.</span></a></div></div></div>
     </div>
+    <button class="mobile-nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-nav" data-mobile-nav-toggle><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     <div class="nav-cta">
       <a href="https://portal.produ.cl" target="_blank" class="btn-outline">Iniciar sesión</a>
       <a href="agenda-demo.html" class="btn-primary">Agenda demo</a>
     </div>
   </div>
 </nav>
+<div class="mobile-nav-backdrop" data-mobile-nav-backdrop></div>
+<aside class="mobile-nav-drawer" id="mobile-nav" data-mobile-nav-drawer aria-label="Navegación móvil">
+  <div class="mobile-nav-head">
+    <div>
+      <strong style="display:block;font-size:16px;letter-spacing:-.3px;color:#152033">Menú</strong>
+      <span style="font-size:13px;color:#6f7d97">Explora Produ desde tu teléfono</span>
+    </div>
+    <button class="mobile-nav-close" type="button" aria-label="Cerrar menú" data-mobile-nav-close>✕</button>
+  </div>
+  <div class="mobile-nav-content">
+    <div class="mobile-nav-section">
+      <h4>Producto</h4>
+      <a href="producto.html">Producto <span>Plataforma completa</span></a>
+      <a href="precios.html">Precios <span>Planes y alcance</span></a>
+    </div>
+    <div class="mobile-nav-section">
+      <h4>¿Qué hacemos?</h4>
+      <a href="soluciones.html">Soluciones <span>Dolores que resolvemos</span></a>
+      <a href="industrias.html">Industrias <span>Equipos y empresas</span></a>
+      <a href="casos-de-uso.html">Casos de uso <span>Ejemplos concretos</span></a>
+    </div>
+    <div class="mobile-nav-section">
+      <h4>Recursos</h4>
+      <a href="recursos.html">Biblioteca <span>Explora recursos</span></a>
+      <a href="partners.html">Partners <span>Red de aliados</span></a>
+      <a href="integraciones.html">Integraciones <span>Conexiones disponibles</span></a>
+    </div>
+    <div class="mobile-nav-actions">
+      <a class="mobile-primary" href="agenda-demo.html">Agenda demo</a>
+      <a class="mobile-secondary" href="https://portal.produ.cl" target="_blank">Iniciar sesión</a>
+    </div>
+  </div>
+</aside>
 
 <div class="hero-wrap">
   <section class="hero">
@@ -285,5 +320,6 @@ footer{background:#1a1a2e;padding:48px 5% 32px}
     </div>
   </div>
 </footer>
+  <script src="assets/mobile-nav.js"></script>
 </body>
 </html>
