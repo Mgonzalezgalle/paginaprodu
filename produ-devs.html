@@ -139,24 +139,24 @@ footer{background:#1a1a2e;padding:64px 5% 40px;margin-top:0;border-top:1px solid
     <div class="hero-copy">
       <div class="hero-badge"><span></span>Produ Devs</div>
       <h1>La documentación para integrar <em>Produ</em> con tu operación</h1>
-      <p>Produ hoy ya expone funciones remotas, webhooks y carriles foundation que permiten conectar calendario, pagos, correo e inteligencia de reuniones. Esta página reúne la referencia viva de esa superficie.</p>
+      <p>Produ te permite conectar agenda, pagos, correo y automatizaciones desde una base simple. Esta guía reúne los puntos de integración que hoy puedes usar para conectar tu empresa con la plataforma.</p>
       <div class="hero-actions">
         <a href="#quickstart" class="btn-primary">Empezar rápido</a>
         <a href="#endpoints" class="btn-ghost">Ver endpoints</a>
       </div>
       <div class="hero-list">
-        <div><strong>Edge Functions</strong> para correo, Google Calendar, Mercado Pago y Diio.</div>
-        <div><strong>RPC / foundation</strong> para snapshots, auditoría, sincronización y registros financieros.</div>
-        <div><strong>Referencia real</strong> basada en el estado actual de `Produ`, no una API ficticia.</div>
+        <div><strong>Integraciones disponibles</strong> para correo, Google Calendar, Mercado Pago y Diio.</div>
+        <div><strong>Guía práctica</strong> con ejemplos simples para empezar a conectar tu flujo.</div>
+        <div><strong>Alcance claro</strong> pensado para equipos externos que necesitan integrar sin entrar a la cocina interna de Produ.</div>
       </div>
     </div>
     <aside class="hero-card">
-      <div class="eyebrow">Estado actual</div>
+      <div class="eyebrow">Resumen</div>
       <div class="hero-stat-grid">
-        <div class="hero-stat"><strong>10</strong><span>edge functions reales detectadas en el proyecto.</span></div>
-        <div class="hero-stat"><strong>12+</strong><span>RPCs foundation usadas por la app hoy.</span></div>
-        <div class="hero-stat"><strong>4</strong><span>familias principales: pagos, calendario, correo y Diio.</span></div>
-        <div class="hero-stat"><strong>viva</strong><span>documentación aterrizada a la arquitectura actual.</span></div>
+        <div class="hero-stat"><strong>4</strong><span>familias principales de integración: pagos, calendario, correo y Diio.</span></div>
+        <div class="hero-stat"><strong>10</strong><span>funciones documentadas para integraciones y automatizaciones.</span></div>
+        <div class="hero-stat"><strong>curl</strong><span>ejemplos listos para probar desde tu entorno.</span></div>
+        <div class="hero-stat"><strong>simple</strong><span>explicado para equipos externos, sin detalle interno innecesario.</span></div>
       </div>
     </aside>
   </div>
@@ -169,7 +169,7 @@ footer{background:#1a1a2e;padding:64px 5% 40px;margin-top:0;border-top:1px solid
     <a href="#quickstart">Quickstart</a>
     <a href="#auth">Autenticación</a>
     <a href="#endpoints">Edge Functions</a>
-    <a href="#foundation">RPC / Foundation</a>
+    <a href="#scope">Alcance</a>
     <a href="#examples">Ejemplos</a>
   </aside>
 
@@ -177,10 +177,10 @@ footer{background:#1a1a2e;padding:64px 5% 40px;margin-top:0;border-top:1px solid
     <article class="docs-card" id="overview">
       <div class="eyebrow">Overview</div>
       <h2>Cómo está compuesta la API de Produ hoy</h2>
-      <p>`Produ` hoy expone su capa remota por dos carriles: `Supabase Edge Functions` y `Supabase RPC / foundation`. No existe todavía una API REST pública única y versionada para todo el producto, así que esta página ordena la superficie real que ya está operativa.</p>
+      <p>Esta documentación cubre los puntos de integración que hoy usamos para conectar pagos, calendario, correo y reuniones. La idea es que puedas entender rápido qué hace cada endpoint y cómo comenzar a consumirlo.</p>
       <div class="split-grid" style="margin-top:20px">
-        <div class="meta-box"><span>Edge Functions</span><strong>Integraciones, webhooks, OAuth, correos y links de pago.</strong></div>
-        <div class="meta-box"><span>RPC / Foundation</span><strong>Snapshots, auditoría, sincronización financiera y almacenamiento gobernado.</strong></div>
+        <div class="meta-box"><span>Integraciones</span><strong>Pagos, agenda, correo y reuniones conectadas a Produ.</strong></div>
+        <div class="meta-box"><span>Webhooks y OAuth</span><strong>Flujos de autenticación y eventos para mantener tus datos al día.</strong></div>
       </div>
       <p class="footer-note">Base URL de funciones: <code>https://&lt;project-ref&gt;.supabase.co/functions/v1/&lt;function-name&gt;</code></p>
     </article>
@@ -188,7 +188,7 @@ footer{background:#1a1a2e;padding:64px 5% 40px;margin-top:0;border-top:1px solid
     <article class="docs-card" id="quickstart">
       <div class="eyebrow">Quickstart</div>
       <h2>Empezar rápido</h2>
-      <p>Si vas a integrar `Produ` desde un cliente o una automatización controlada, hoy el patrón más común es invocar `Edge Functions` con JSON y headers estándar de Supabase.</p>
+      <p>Si vas a conectar Produ desde un sistema externo o una automatización, el punto de partida más simple es hacer llamadas HTTP con JSON y headers estándar de Supabase.</p>
 <pre><code>curl -X POST "https://&lt;project-ref&gt;.supabase.co/functions/v1/send-transactional-email" \
   -H "Content-Type: application/json" \
   -H "apikey: &lt;SUPABASE_ANON_KEY&gt;" \
@@ -204,7 +204,7 @@ footer{background:#1a1a2e;padding:64px 5% 40px;margin-top:0;border-top:1px solid
     <article class="docs-card" id="auth">
       <div class="eyebrow">Autenticación</div>
       <h2>Qué headers usa hoy la app</h2>
-      <p>Cuando `Produ` no usa `sb.functions.invoke(...)`, el fallback directo hacia las funciones usa:</p>
+      <p>Para consumir estas funciones desde un sistema externo, usamos headers estándar de Supabase:</p>
       <ul>
         <li><code>apikey: &lt;SUPABASE_ANON_KEY&gt;</code></li>
         <li><code>Authorization: Bearer &lt;SUPABASE_ANON_KEY&gt;</code></li>
@@ -293,19 +293,19 @@ footer{background:#1a1a2e;padding:64px 5% 40px;margin-top:0;border-top:1px solid
 
       <section class="endpoint">
         <div class="endpoint-head"><strong>`diio-handle-webhook`</strong><span class="method">GET / POST</span></div>
-        <p>Recibe webhooks de Diio, valida firma, enriquece la interacción y la persiste en la cola del tenant.</p>
+        <p>Recibe webhooks de Diio, valida firma y actualiza la interacción correspondiente dentro de Produ.</p>
       </section>
     </article>
 
-    <article class="docs-card" id="foundation">
-      <div class="eyebrow">RPC / Foundation</div>
-      <h2>Capacidades internas de foundation</h2>
-      <p>Además de las Edge Functions, Produ usa un carril interno de foundation para sincronización, auditoría y registros gobernados. Esa capa existe hoy y sostiene buena parte de la confiabilidad operativa del producto, pero no está pensada como API pública estable para terceros.</p>
+    <article class="docs-card" id="scope">
+      <div class="eyebrow">Alcance</div>
+      <h2>Qué cubre esta documentación</h2>
+      <p>Aquí documentamos la superficie pensada para integraciones y automatizaciones. Si necesitas un flujo especial, nuestro equipo puede ayudarte a revisar la mejor forma de conectarlo sin exponer procesos internos de la plataforma.</p>
       <div class="split-grid" style="margin-top:16px">
-        <div class="meta-box"><span>Tenants y gobierno</span><strong>Sincronización de empresa, membresías, usuarios y estado de identidad.</strong></div>
-        <div class="meta-box"><span>Auditoría y eventos</span><strong>Bitácoras, eventos operativos, señales de workflow y trazabilidad.</strong></div>
-        <div class="meta-box"><span>Registros financieros</span><strong>Snapshots, registros por entidad y soporte a cobranza y tesorería.</strong></div>
-        <div class="meta-box"><span>Sincronización y storage</span><strong>Estado de integraciones, sesiones de sync y almacenamiento gobernado.</strong></div>
+        <div class="meta-box"><span>Sí documentamos</span><strong>Endpoints, ejemplos de uso, autenticación, OAuth y webhooks disponibles para terceros.</strong></div>
+        <div class="meta-box"><span>No documentamos aquí</span><strong>Servicios internos, procesos de soporte y capas privadas de operación que no forman parte del uso externo.</strong></div>
+        <div class="meta-box"><span>Casos comunes</span><strong>Links de pago, agenda, correo transaccional, sincronización de reuniones y automatizaciones simples.</strong></div>
+        <div class="meta-box"><span>Ayuda</span><strong>Si tu caso requiere algo más específico, escríbenos y revisamos la integración contigo.</strong></div>
       </div>
     </article>
 
@@ -335,7 +335,7 @@ footer{background:#1a1a2e;padding:64px 5% 40px;margin-top:0;border-top:1px solid
     "userEmail": "usuario@empresa.cl",
     "redirectTo": "https://app.produ.cl/admin/empresa"
   }'</code></pre>
-      <p class="footer-note">Si quieres una API pública unificada, el siguiente paso correcto es construir una `Public API v1` con versionado, naming consistente y separación clara entre funciones públicas e infraestructura foundation.</p>
+      <p class="footer-note">Si necesitas apoyo para conectar tu flujo con Produ, puedes escribirnos a <a href="mailto:hola@produ.cl">hola@produ.cl</a> y coordinamos la mejor forma de integrarlo.</p>
     </article>
   </div>
 </section>
