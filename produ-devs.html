@@ -244,7 +244,7 @@ footer{background:#1a1a2e;padding:64px 5% 40px;margin-top:0;border-top:1px solid
 
       <section class="endpoint">
         <div class="endpoint-head"><strong>`mercadopago-create-payment-link`</strong><span class="method">POST</span></div>
-        <p>Crea links de pago para facturas o cobranza y devuelve el `init_point` de Mercado Pago.</p>
+        <p>Crea links de pago para facturas o cobranza y devuelve el `init_point` de Mercado Pago. En operación real, este flujo normalmente se ejecuta sobre una integración ya configurada en Produ.</p>
 <pre><code>{
   "tenantId": "emp_xxx",
   "invoiceId": "inv_xxx",
@@ -252,8 +252,7 @@ footer{background:#1a1a2e;padding:64px 5% 40px;margin-top:0;border-top:1px solid
   "amount": 1497000,
   "currency": "CLP",
   "description": "Pago factura FAC-2026-0012",
-  "customer": { "name": "Go Soluciones", "email": "pagos@gosoluciones.cl" },
-  "tenantConfig": { "accessToken": "APP_USR-...", "marketplace": "MLC" }
+  "customer": { "name": "Go Soluciones", "email": "pagos@gosoluciones.cl" }
 }</code></pre>
       </section>
 
@@ -300,13 +299,13 @@ footer{background:#1a1a2e;padding:64px 5% 40px;margin-top:0;border-top:1px solid
 
     <article class="docs-card" id="foundation">
       <div class="eyebrow">RPC / Foundation</div>
-      <h2>Operaciones internas relevantes</h2>
-      <p>Estas operaciones existen hoy en código y son parte del carril foundation. Sirven para sincronización, auditoría y registros gobernados. No conviene presentarlas todavía como API pública estable para terceros.</p>
+      <h2>Capacidades internas de foundation</h2>
+      <p>Además de las Edge Functions, Produ usa un carril interno de foundation para sincronización, auditoría y registros gobernados. Esa capa existe hoy y sostiene buena parte de la confiabilidad operativa del producto, pero no está pensada como API pública estable para terceros.</p>
       <div class="split-grid" style="margin-top:16px">
-        <div class="meta-box"><span>Tenants y gobierno</span><strong>`request_tenant_bootstrap`, `sync_legacy_tenant_snapshot`, `replace_legacy_tenant_user_shadows`, `replace_legacy_identity_candidates`</strong></div>
-        <div class="meta-box"><span>Auditoría y eventos</span><strong>`append_legacy_sync_audit_log`, `append_legacy_operational_event`, `get_legacy_operational_events`</strong></div>
-        <div class="meta-box"><span>Registros financieros</span><strong>`upsert_legacy_financial_registry_snapshot`, `get_legacy_financial_registry_snapshot`, `upsert_legacy_financial_registry_record`, `delete_legacy_financial_registry_record`</strong></div>
-        <div class="meta-box"><span>Bsale y storage</span><strong>`get_bsale_sync_status`, `upsert_bsale_sync_session`, `get_bsale_sync_sessions`, `get_legacy_storage_item`, `upsert_legacy_storage_item`</strong></div>
+        <div class="meta-box"><span>Tenants y gobierno</span><strong>Sincronización de empresa, membresías, usuarios y estado de identidad.</strong></div>
+        <div class="meta-box"><span>Auditoría y eventos</span><strong>Bitácoras, eventos operativos, señales de workflow y trazabilidad.</strong></div>
+        <div class="meta-box"><span>Registros financieros</span><strong>Snapshots, registros por entidad y soporte a cobranza y tesorería.</strong></div>
+        <div class="meta-box"><span>Sincronización y storage</span><strong>Estado de integraciones, sesiones de sync y almacenamiento gobernado.</strong></div>
       </div>
     </article>
 
