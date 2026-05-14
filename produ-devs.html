@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="/favicon.png">
+<title>Produ Devs — API Docs</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/mobile-nav.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:linear-gradient(180deg,#fbfcff 0%,#f2f6fc 100%);color:#152033;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+code,pre{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace}
+nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.84);backdrop-filter:blur(18px);border-bottom:1px solid #e7ebf4;padding:0 5%}
+.nav-inner{max-width:1240px;height:72px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.nav-logo,.footer-logo{display:flex;align-items:center;gap:12px}
+.nav-logo-icon,.footer-logo-icon{width:36px;height:36px;border-radius:10px;background:#1a1a2e;display:flex;align-items:center;justify-content:center}
+.brand-stack,.footer-logo-copy{display:flex;flex-direction:column;line-height:1}
+.nav-logo-text,.footer-logo-text{font-family:'Syne',sans-serif;font-size:24px;font-weight:800;letter-spacing:-1px;color:#1a1a2e}
+.nav-logo-sub,.footer-logo-sub{font-size:10px;color:#7f8594;margin-top:4px;white-space:nowrap}
+.nav-links{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.nav-links a{font-size:13px;font-weight:700;color:#5f6b84}
+.nav-links a:hover,.nav-links a.active{color:#152033}
+.nav-item-menu,.nav-item-resources{position:relative}
+.nav-item-resources.active .nav-menu-trigger{color:#2b6df6}
+.nav-menu-trigger{display:inline-flex;align-items:center;gap:8px;background:transparent;border:none;padding:10px 14px;border-radius:999px;font-size:13px;font-weight:700;color:#152033;cursor:pointer;font-family:'Inter',sans-serif;transition:.18s ease}
+.nav-menu-trigger:hover,.nav-item-resources.active .nav-menu-trigger{background:#eef3ff;box-shadow:inset 0 0 0 1px #dbe7ff}
+.nav-menu-trigger::after{content:"⌄";font-size:11px;transform:translateY(-1px);opacity:.7}
+.nav-mega{position:absolute;top:calc(100% + 18px);left:50%;transform:translateX(-50%);width:min(760px,82vw);background:rgba(255,255,255,.98);backdrop-filter:blur(18px);border:1px solid #e7ebf4;border-radius:28px;box-shadow:0 36px 80px rgba(15,23,42,.16);display:grid;grid-template-columns:260px 1fr;overflow:hidden;opacity:0;pointer-events:none;transition:.18s ease;z-index:30}
+.nav-item-menu:hover .nav-mega,.nav-item-menu:focus-within .nav-mega,.nav-item-resources:hover .nav-mega,.nav-item-resources:focus-within .nav-mega{opacity:1;pointer-events:auto}
+.nav-mega-intro{padding:28px;background:linear-gradient(180deg,#edf4ff 0%,#f7faff 100%);border-right:1px solid #e8eefb}
+.nav-mega-intro h3{font-size:18px;font-weight:800;letter-spacing:-.45px;color:#152033;margin-bottom:12px}
+.nav-mega-intro p{font-size:14px;line-height:1.7;color:#5f6b84}
+.nav-mega-grid{padding:22px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.nav-mega-link{display:grid;gap:6px;padding:16px 18px;border-radius:20px;border:1px solid #eef2f8;background:linear-gradient(180deg,#ffffff 0%,#fbfcff 100%);transition:.18s ease;box-shadow:0 12px 26px rgba(15,23,42,.04)}
+.nav-mega-link:hover{border-color:#d8e4ff;background:#f8fbff;transform:translateY(-2px);box-shadow:0 18px 32px rgba(43,109,246,.08)}
+.nav-mega-link strong{font-size:15px;letter-spacing:-.2px;color:#152033}
+.nav-mega-link span{font-size:13px;line-height:1.6;color:#6a7690}
+.nav-cta{display:flex;gap:10px}
+.btn-outline,.btn-primary,.btn-ghost{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;font-weight:800;transition:.18s ease;cursor:pointer}
+.btn-outline{padding:10px 16px;border:1.5px solid #152033;color:#152033;font-size:13px;background:rgba(255,255,255,.72)}
+.btn-primary{padding:10px 16px;background:linear-gradient(135deg,#152033 0%,#1f2e49 100%);color:#fff;font-size:13px;border:none;box-shadow:0 14px 28px rgba(21,32,51,.16)}
+.btn-ghost{padding:11px 16px;border:1px solid #dfe7f6;background:#fff;color:#37549a;font-size:13px}
+.hero{max-width:1240px;margin:0 auto;padding:86px 5% 38px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:22px}
+.hero-copy,.hero-card{background:#fff;border:1.5px solid #e7ebf4;border-radius:30px;box-shadow:0 22px 48px rgba(15,23,42,.06)}
+.hero-copy{padding:40px}
+.hero-card{padding:26px;background:linear-gradient(180deg,#ffffff 0%,#f7faff 100%)}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:#eef3ff;color:#37549a;font-size:12px;font-weight:800;letter-spacing:.6px;text-transform:uppercase}
+.hero-badge span{width:8px;height:8px;border-radius:50%;background:#2b6df6}
+.hero h1{font-size:clamp(40px,5vw,68px);line-height:1;letter-spacing:-2.6px;margin:18px 0 16px}
+.hero h1 em{font-style:normal;color:#2b6df6}
+.hero p{font-size:17px;line-height:1.78;color:#5f6b84;max-width:760px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.hero-stat-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:14px}
+.hero-stat{padding:18px;border-radius:20px;background:#fff;border:1px solid #e6edf8}
+.hero-stat strong{display:block;font-size:24px;letter-spacing:-1px;color:#152033;margin-bottom:6px}
+.hero-stat span{display:block;font-size:13px;line-height:1.6;color:#66748d}
+.hero-list{display:grid;gap:10px;margin-top:18px}
+.hero-list div{padding:13px 14px;border-radius:16px;background:#fff;border:1px solid #e6edf8;font-size:13px;line-height:1.65;color:#4f5f7a}
+.docs-shell{max-width:1240px;margin:0 auto;padding:16px 5% 90px;display:grid;grid-template-columns:260px 1fr;gap:24px;align-items:start}
+.docs-sidebar{position:sticky;top:96px;padding:22px;border-radius:26px;background:rgba(255,255,255,.78);backdrop-filter:blur(14px);border:1px solid #e7edf7;box-shadow:0 16px 32px rgba(15,23,42,.05)}
+.docs-sidebar h3{font-size:13px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:#73819d;margin-bottom:14px}
+.docs-sidebar a{display:block;padding:10px 0;font-size:14px;font-weight:700;color:#50617d;border-bottom:1px solid #edf2f8}
+.docs-sidebar a:last-child{border-bottom:none}
+.docs-main{display:grid;gap:18px}
+.docs-card{padding:28px;border-radius:28px;background:#fff;border:1.5px solid #e7ebf4;box-shadow:0 18px 36px rgba(15,23,42,.05)}
+.docs-card h2{font-size:30px;letter-spacing:-1.1px;margin-bottom:12px}
+.docs-card h3{font-size:22px;letter-spacing:-.7px;margin:22px 0 10px}
+.docs-card p,.docs-card li{font-size:15px;line-height:1.8;color:#4f5f7a}
+.docs-card ul{padding-left:18px;display:grid;gap:8px}
+.eyebrow{display:inline-flex;align-items:center;padding:7px 12px;border-radius:999px;background:#eef3ff;color:#37549a;font-size:11px;font-weight:800;letter-spacing:.7px;text-transform:uppercase;margin-bottom:14px}
+.endpoint{display:grid;gap:14px;padding:20px;border-radius:22px;background:linear-gradient(180deg,#fbfcff 0%,#f6f9ff 100%);border:1px solid #e6edf8;margin-top:16px}
+.endpoint-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.endpoint-head strong{font-size:20px;letter-spacing:-.6px}
+.method{display:inline-flex;align-items:center;justify-content:center;min-width:74px;padding:8px 12px;border-radius:999px;background:#152033;color:#fff;font-size:12px;font-weight:800;letter-spacing:.8px}
+.meta-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.meta-box{padding:16px;border-radius:18px;background:#fff;border:1px solid #e8eef8}
+.meta-box span{display:block;font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#8090aa;margin-bottom:6px}
+.meta-box strong{display:block;font-size:14px;line-height:1.55;color:#152033}
+pre{padding:18px 20px;border-radius:20px;background:#101828;color:#d6e0f5;border:1px solid #1f2d46;overflow:auto;font-size:12px;line-height:1.65}
+.split-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.footer-note{font-size:13px;color:#7a879d;margin-top:14px}
+footer{background:#1a1a2e;padding:64px 5% 40px;margin-top:0;border-top:1px solid #ffffff10}
+.footer-inner{max-width:1200px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.footer-desc{font-size:14px;color:#666;line-height:1.7;max-width:280px}
+.footer-col h4{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#555;margin-bottom:16px}
+.footer-col a{display:block;font-size:14px;color:#666;margin-bottom:10px;transition:.15s}
+.footer-col a:hover{color:#fff}
+.footer-badge-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:18px}
+.footer-badge-row img{height:40px;width:auto;display:block;opacity:.94}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:32px;border-top:1px solid #ffffff10;flex-wrap:wrap;gap:12px}
+.footer-bottom p{font-size:13px;color:#555}
+.footer-verify{display:flex;flex-direction:column;align-items:flex-end;gap:10px;font-size:13px;color:#7f8594;line-height:1.6;max-width:620px;text-align:right}
+.footer-verify a{color:#d7e6ff;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:1080px){.hero-grid,.docs-shell,.split-grid,.meta-grid{grid-template-columns:1fr}.docs-sidebar{position:relative;top:0}.footer-top{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.hero,.docs-shell{padding-left:20px;padding-right:20px}.hero-copy,.hero-card,.docs-card{padding:24px 22px}.footer-top{grid-template-columns:1fr;gap:28px}.footer-verify{text-align:left;align-items:flex-start}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon"><svg viewBox="0 0 24 24" fill="#fff" width="16" height="16"><polygon points="5,3 20,12 5,21"/></svg></div>
+      <div class="brand-stack"><div class="nav-logo-text">produ</div><div class="nav-logo-sub">Gestión de Productoras</div></div>
+    </a>
+    <div class="nav-links">
+      <a href="producto.html">Producto</a>
+      <div class="nav-item-menu"><button class="nav-menu-trigger" type="button">¿Qué hacemos?</button><div class="nav-mega"><div class="nav-mega-intro"><h3>¿Qué hacemos?</h3><p>Mostramos de forma simple cómo Produ ayuda a ordenar la operación, bajar fricción y dar visibilidad al trabajo del día a día.</p></div><div class="nav-mega-grid"><a class="nav-mega-link" href="soluciones.html"><strong>Soluciones</strong><span>Conoce los dolores que ayudamos a resolver en comercial, operación y finanzas.</span></a><a class="nav-mega-link" href="industrias.html"><strong>Industrias</strong><span>Descubre en qué tipos de equipos y empresas Produ hace más sentido.</span></a><a class="nav-mega-link" href="casos-de-uso.html"><strong>Casos de uso</strong><span>Revisa ejemplos concretos de cómo se ordena el trabajo con Produ.</span></a><a class="nav-mega-link" href="agenda-demo.html"><strong>Agenda demo</strong><span>Conversemos sobre qué parte de tu operación conviene ordenar primero.</span></a></div></div></div>
+      <a href="precios.html">Precios</a>
+      <div class="nav-item-resources active"><button class="nav-menu-trigger" type="button">Recursos</button><div class="nav-mega"><div class="nav-mega-intro"><h3>Recursos</h3><p>Conoce el mundo Produ desde adentro: aliados, integraciones y materiales pensados para entender mejor cómo crece la plataforma.</p></div><div class="nav-mega-grid"><a class="nav-mega-link" href="recursos.html"><strong>Biblioteca</strong><span>El punto de entrada a los recursos que acompañan a Produ.</span></a><a class="nav-mega-link" href="partners.html"><strong>Partners</strong><span>Explora la red de aliados y las oportunidades de colaboración.</span></a><a class="nav-mega-link" href="integraciones.html"><strong>Integraciones</strong><span>Revisa las conexiones disponibles para cobros, agenda y documentos.</span></a><a class="nav-mega-link" href="produ-devs.html"><strong>Produ Devs</strong><span>Documentación de API, integraciones y carriles remotos de Produ.</span></a></div></div></div>
+    </div>
+    <button class="mobile-nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-nav" data-mobile-nav-toggle><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <div class="nav-cta">
+      <a href="https://portal.produ.cl" target="_blank" class="btn-outline">Iniciar sesión</a>
+      <a href="agenda-demo.html" class="btn-primary">Agenda demo</a>
+    </div>
+  </div>
+</nav>
+<div class="mobile-nav-backdrop" data-mobile-nav-backdrop></div>
+<aside class="mobile-nav-drawer" id="mobile-nav" data-mobile-nav-drawer aria-label="Navegación móvil">
+  <div class="mobile-nav-head">
+    <div><strong style="display:block;font-size:16px;letter-spacing:-.3px;color:#152033">Menú</strong><span style="font-size:13px;color:#6f7d97">Explora Produ desde tu teléfono</span></div>
+    <button class="mobile-nav-close" type="button" aria-label="Cerrar menú" data-mobile-nav-close>✕</button>
+  </div>
+  <div class="mobile-nav-content">
+    <div class="mobile-nav-section"><h4>Producto</h4><a href="producto.html">Producto <span>Plataforma completa</span></a><a href="precios.html">Precios <span>Planes y alcance</span></a></div>
+    <div class="mobile-nav-section"><h4>¿Qué hacemos?</h4><a href="soluciones.html">Soluciones <span>Dolores que resolvemos</span></a><a href="industrias.html">Industrias <span>Equipos y empresas</span></a><a href="casos-de-uso.html">Casos de uso <span>Ejemplos concretos</span></a></div>
+    <div class="mobile-nav-section"><h4>Recursos</h4><a href="recursos.html">Biblioteca <span>Explora recursos</span></a><a href="partners.html">Partners <span>Red de aliados</span></a><a href="integraciones.html">Integraciones <span>Conexiones disponibles</span></a><a href="produ-devs.html">Produ Devs <span>API Docs</span></a></div>
+    <div class="mobile-nav-actions"><a class="mobile-primary" href="agenda-demo.html">Agenda demo</a><a class="mobile-secondary" href="https://portal.produ.cl" target="_blank">Iniciar sesión</a></div>
+  </div>
+</aside>
+
+<section class="hero">
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <div class="hero-badge"><span></span>Produ Devs</div>
+      <h1>La documentación para integrar <em>Produ</em> con tu operación</h1>
+      <p>Produ hoy ya expone funciones remotas, webhooks y carriles foundation que permiten conectar calendario, pagos, correo e inteligencia de reuniones. Esta página reúne la referencia viva de esa superficie.</p>
+      <div class="hero-actions">
+        <a href="#quickstart" class="btn-primary">Empezar rápido</a>
+        <a href="#endpoints" class="btn-ghost">Ver endpoints</a>
+      </div>
+      <div class="hero-list">
+        <div><strong>Edge Functions</strong> para correo, Google Calendar, Mercado Pago y Diio.</div>
+        <div><strong>RPC / foundation</strong> para snapshots, auditoría, sincronización y registros financieros.</div>
+        <div><strong>Referencia real</strong> basada en el estado actual de `Produ`, no una API ficticia.</div>
+      </div>
+    </div>
+    <aside class="hero-card">
+      <div class="eyebrow">Estado actual</div>
+      <div class="hero-stat-grid">
+        <div class="hero-stat"><strong>10</strong><span>edge functions reales detectadas en el proyecto.</span></div>
+        <div class="hero-stat"><strong>12+</strong><span>RPCs foundation usadas por la app hoy.</span></div>
+        <div class="hero-stat"><strong>4</strong><span>familias principales: pagos, calendario, correo y Diio.</span></div>
+        <div class="hero-stat"><strong>viva</strong><span>documentación aterrizada a la arquitectura actual.</span></div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="docs-shell">
+  <aside class="docs-sidebar">
+    <h3>Contenido</h3>
+    <a href="#overview">Overview</a>
+    <a href="#quickstart">Quickstart</a>
+    <a href="#auth">Autenticación</a>
+    <a href="#endpoints">Edge Functions</a>
+    <a href="#foundation">RPC / Foundation</a>
+    <a href="#examples">Ejemplos</a>
+  </aside>
+
+  <div class="docs-main">
+    <article class="docs-card" id="overview">
+      <div class="eyebrow">Overview</div>
+      <h2>Cómo está compuesta la API de Produ hoy</h2>
+      <p>`Produ` hoy expone su capa remota por dos carriles: `Supabase Edge Functions` y `Supabase RPC / foundation`. No existe todavía una API REST pública única y versionada para todo el producto, así que esta página ordena la superficie real que ya está operativa.</p>
+      <div class="split-grid" style="margin-top:20px">
+        <div class="meta-box"><span>Edge Functions</span><strong>Integraciones, webhooks, OAuth, correos y links de pago.</strong></div>
+        <div class="meta-box"><span>RPC / Foundation</span><strong>Snapshots, auditoría, sincronización financiera y almacenamiento gobernado.</strong></div>
+      </div>
+      <p class="footer-note">Base URL de funciones: <code>https://&lt;project-ref&gt;.supabase.co/functions/v1/&lt;function-name&gt;</code></p>
+    </article>
+
+    <article class="docs-card" id="quickstart">
+      <div class="eyebrow">Quickstart</div>
+      <h2>Empezar rápido</h2>
+      <p>Si vas a integrar `Produ` desde un cliente o una automatización controlada, hoy el patrón más común es invocar `Edge Functions` con JSON y headers estándar de Supabase.</p>
+<pre><code>curl -X POST "https://&lt;project-ref&gt;.supabase.co/functions/v1/send-transactional-email" \
+  -H "Content-Type: application/json" \
+  -H "apikey: &lt;SUPABASE_ANON_KEY&gt;" \
+  -H "Authorization: Bearer &lt;SUPABASE_ANON_KEY&gt;" \
+  -d '{
+    "tenantId": "emp_xxx",
+    "subject": "Nuevo feedback de cliente",
+    "to": [{ "email": "equipo@empresa.cl", "name": "Equipo" }],
+    "html": "&lt;p&gt;Tienes una nueva respuesta.&lt;/p&gt;"
+  }'</code></pre>
+    </article>
+
+    <article class="docs-card" id="auth">
+      <div class="eyebrow">Autenticación</div>
+      <h2>Qué headers usa hoy la app</h2>
+      <p>Cuando `Produ` no usa `sb.functions.invoke(...)`, el fallback directo hacia las funciones usa:</p>
+      <ul>
+        <li><code>apikey: &lt;SUPABASE_ANON_KEY&gt;</code></li>
+        <li><code>Authorization: Bearer &lt;SUPABASE_ANON_KEY&gt;</code></li>
+        <li><code>Content-Type: application/json</code></li>
+      </ul>
+      <h3>Credenciales que nunca deben salir al cliente</h3>
+      <ul>
+        <li><code>SUPABASE_SERVICE_ROLE_KEY</code></li>
+        <li><code>MERCADOPAGO_ACCESS_TOKEN</code></li>
+        <li><code>GOOGLE_CLIENT_SECRET</code></li>
+        <li><code>RESEND_API_KEY</code></li>
+        <li>secretos de `Diio` y webhook secrets</li>
+      </ul>
+    </article>
+
+    <article class="docs-card" id="endpoints">
+      <div class="eyebrow">Edge Functions</div>
+      <h2>Endpoints principales</h2>
+
+      <section class="endpoint">
+        <div class="endpoint-head"><strong>`send-transactional-email`</strong><span class="method">POST</span></div>
+        <p>Envía correos transaccionales por `Resend`. Se usa para alertas, notificaciones operativas y respuestas del portal cliente.</p>
+        <div class="meta-grid">
+          <div class="meta-box"><span>Uso típico</span><strong>Alertas, feedback cliente, mensajes de soporte.</strong></div>
+          <div class="meta-box"><span>Proveedor</span><strong>Resend</strong></div>
+          <div class="meta-box"><span>Respuesta</span><strong>`delivery.id`, metadata y destinatarios.</strong></div>
+        </div>
+<pre><code>{
+  "tenantId": "emp_xxx",
+  "subject": "Nuevo feedback de cliente",
+  "to": [{ "email": "equipo@empresa.cl", "name": "Equipo" }],
+  "html": "&lt;p&gt;Tienes una nueva respuesta.&lt;/p&gt;",
+  "entityType": "content_piece",
+  "entityId": "piece_xxx"
+}</code></pre>
+      </section>
+
+      <section class="endpoint">
+        <div class="endpoint-head"><strong>`mercadopago-create-payment-link`</strong><span class="method">POST</span></div>
+        <p>Crea links de pago para facturas o cobranza y devuelve el `init_point` de Mercado Pago.</p>
+<pre><code>{
+  "tenantId": "emp_xxx",
+  "invoiceId": "inv_xxx",
+  "externalReference": "FAC-2026-0012",
+  "amount": 1497000,
+  "currency": "CLP",
+  "description": "Pago factura FAC-2026-0012",
+  "customer": { "name": "Go Soluciones", "email": "pagos@gosoluciones.cl" },
+  "tenantConfig": { "accessToken": "APP_USR-...", "marketplace": "MLC" }
+}</code></pre>
+      </section>
+
+      <section class="endpoint">
+        <div class="endpoint-head"><strong>`mercadopago-handle-webhook`</strong><span class="method">POST</span></div>
+        <p>Normaliza el estado de un pago desde Mercado Pago. Puede trabajar con `paymentId` directo o resolver por `externalReference` y `preferenceId`.</p>
+      </section>
+
+      <section class="endpoint">
+        <div class="endpoint-head"><strong>`google-calendar-oauth-start`</strong><span class="method">POST</span></div>
+        <p>Inicia OAuth de Google Calendar y devuelve la URL de autorización para conectar una cuenta.</p>
+      </section>
+
+      <section class="endpoint">
+        <div class="endpoint-head"><strong>`google-calendar-oauth-callback`</strong><span class="method">GET / POST</span></div>
+        <p>Completa OAuth y devuelve la conexión con `refreshToken`, `calendarId` y datos del usuario conectado.</p>
+      </section>
+
+      <section class="endpoint">
+        <div class="endpoint-head"><strong>`google-calendar-create-event`</strong><span class="method">POST</span></div>
+        <p>Crea o actualiza eventos en Google Calendar, con soporte para invitados y Google Meet.</p>
+      </section>
+
+      <section class="endpoint">
+        <div class="endpoint-head"><strong>`google-calendar-list-events`</strong><span class="method">POST</span></div>
+        <p>Lista eventos de un calendario en una ventana de tiempo.</p>
+      </section>
+
+      <section class="endpoint">
+        <div class="endpoint-head"><strong>`google-calendar-delete-event`</strong><span class="method">POST</span></div>
+        <p>Elimina un evento existente desde Google Calendar.</p>
+      </section>
+
+      <section class="endpoint">
+        <div class="endpoint-head"><strong>`diio-company-api`</strong><span class="method">POST</span></div>
+        <p>Valida conexión, refresca token e importa reuniones y llamadas desde Diio. También enriquece payloads con transcript, playbook y usuarios.</p>
+      </section>
+
+      <section class="endpoint">
+        <div class="endpoint-head"><strong>`diio-handle-webhook`</strong><span class="method">GET / POST</span></div>
+        <p>Recibe webhooks de Diio, valida firma, enriquece la interacción y la persiste en la cola del tenant.</p>
+      </section>
+    </article>
+
+    <article class="docs-card" id="foundation">
+      <div class="eyebrow">RPC / Foundation</div>
+      <h2>Operaciones internas relevantes</h2>
+      <p>Estas operaciones existen hoy en código y son parte del carril foundation. Sirven para sincronización, auditoría y registros gobernados. No conviene presentarlas todavía como API pública estable para terceros.</p>
+      <div class="split-grid" style="margin-top:16px">
+        <div class="meta-box"><span>Tenants y gobierno</span><strong>`request_tenant_bootstrap`, `sync_legacy_tenant_snapshot`, `replace_legacy_tenant_user_shadows`, `replace_legacy_identity_candidates`</strong></div>
+        <div class="meta-box"><span>Auditoría y eventos</span><strong>`append_legacy_sync_audit_log`, `append_legacy_operational_event`, `get_legacy_operational_events`</strong></div>
+        <div class="meta-box"><span>Registros financieros</span><strong>`upsert_legacy_financial_registry_snapshot`, `get_legacy_financial_registry_snapshot`, `upsert_legacy_financial_registry_record`, `delete_legacy_financial_registry_record`</strong></div>
+        <div class="meta-box"><span>Bsale y storage</span><strong>`get_bsale_sync_status`, `upsert_bsale_sync_session`, `get_bsale_sync_sessions`, `get_legacy_storage_item`, `upsert_legacy_storage_item`</strong></div>
+      </div>
+    </article>
+
+    <article class="docs-card" id="examples">
+      <div class="eyebrow">Ejemplos</div>
+      <h2>Ejemplos rápidos</h2>
+      <h3>Crear link de pago</h3>
+<pre><code>curl -X POST "https://&lt;project-ref&gt;.supabase.co/functions/v1/mercadopago-create-payment-link" \
+  -H "Content-Type: application/json" \
+  -H "apikey: &lt;SUPABASE_ANON_KEY&gt;" \
+  -H "Authorization: Bearer &lt;SUPABASE_ANON_KEY&gt;" \
+  -d '{
+    "tenantId": "emp_xxx",
+    "invoiceId": "inv_xxx",
+    "externalReference": "FAC-2026-0012",
+    "amount": 1497000,
+    "currency": "CLP"
+  }'</code></pre>
+      <h3>Iniciar OAuth de Google Calendar</h3>
+<pre><code>curl -X POST "https://&lt;project-ref&gt;.supabase.co/functions/v1/google-calendar-oauth-start" \
+  -H "Content-Type: application/json" \
+  -H "apikey: &lt;SUPABASE_ANON_KEY&gt;" \
+  -H "Authorization: Bearer &lt;SUPABASE_ANON_KEY&gt;" \
+  -d '{
+    "tenantId": "emp_xxx",
+    "userId": "usr_xxx",
+    "userEmail": "usuario@empresa.cl",
+    "redirectTo": "https://app.produ.cl/admin/empresa"
+  }'</code></pre>
+      <p class="footer-note">Si quieres una API pública unificada, el siguiente paso correcto es construir una `Public API v1` con versionado, naming consistente y separación clara entre funciones públicas e infraestructura foundation.</p>
+    </article>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo"><div class="footer-logo-icon"><svg viewBox="0 0 24 24" fill="#1a1a2e" width="14" height="14"><polygon points="5,3 20,12 5,21"/></svg></div><div class="footer-logo-copy"><span class="footer-logo-text" style="color:#fff">produ</span><span class="footer-logo-sub">Gestión de Productoras</span></div></div>
+        <p class="footer-desc">Plataforma de gestión para productoras audiovisuales. Centraliza comercial, producción, tesorería, documentos y seguimiento en un solo sistema.</p>
+        <div class="footer-badge-row"><img src="assets/chile-partner.png" alt="Chile partner" /><img src="assets/comparasoftware-verified.svg" alt="ComparaSoftware verificado 2025" /></div>
+      </div>
+      <div class="footer-col"><h4>Producto</h4><a href="producto.html">Producto</a><a href="soluciones.html">Soluciones</a><a href="industrias.html">Industrias</a><a href="casos-de-uso.html">Casos de uso</a><a href="recursos.html">Recursos</a></div>
+      <div class="footer-col"><h4>Recursos</h4><a href="partners.html">Partners</a><a href="integraciones.html">Integraciones</a><a href="produ-devs.html">Produ Devs</a><a href="recursos.html">Biblioteca</a></div>
+      <div class="footer-col"><h4>Soporte</h4><a href="agenda-demo.html">Solicitar demo</a><a href="mailto:hola@produ.cl">hola@produ.cl</a><a href="tel:+56229380010">+56 2 2938 0010</a></div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 Produ — Gestión de Productoras. Todos los derechos reservados.</p><div class="footer-verify"><span><a target="_blank" href="https://www.comparasoftware.cl/produ-app">Produ App</a> se encuentra verificado como <a target="_blank" href="https://www.comparasoftware.cl/saas-solutions">Soluciones SaaS en Chile</a></span></div></div>
+  </div>
+</footer>
+<script src="assets/mobile-nav.js"></script>
+</body>
+</html>
