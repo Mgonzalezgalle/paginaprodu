@@ -73,14 +73,21 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-
 .cta-copy h2{font-family:'Inter',sans-serif;font-size:clamp(30px,4vw,46px);letter-spacing:-1.5px;margin-bottom:12px}
 .cta-copy p{font-size:17px;line-height:1.7;color:#aeb7c9;max-width:640px}
 .cta-actions{display:flex;gap:12px;flex-wrap:wrap}
-footer{background:#1a1a2e;padding:48px 5% 32px}
-.footer-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
-.footer-links{display:flex;gap:22px;flex-wrap:wrap}
-.footer-links a,.footer-copy{font-size:13px;color:#555}
-.footer-affiliate{display:inline-flex;align-items:center;gap:10px}
-.footer-affiliate img{height:32px;width:auto;display:block;opacity:.9}
+footer{background:#1a1a2e;padding:64px 5% 40px;margin:0;border-top:1px solid #ffffff10}
+.footer-inner{max-width:1200px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.footer-desc{font-size:14px;color:#666;line-height:1.7;max-width:280px}
+.footer-col h4{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#555;margin-bottom:16px}
+.footer-col a{display:block;font-size:14px;color:#666;margin-bottom:10px;transition:.15s}
+.footer-col a:hover{color:#fff}
+.footer-badge-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:18px}
+.footer-badge-row img{height:40px;width:auto;display:block;opacity:.94}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:32px;border-top:1px solid #ffffff10;flex-wrap:wrap;gap:12px}
+.footer-bottom p{font-size:13px;color:#555}
+.footer-verify{display:flex;flex-direction:column;align-items:flex-end;gap:10px;font-size:13px;color:#7f8594;line-height:1.6;max-width:620px;text-align:right}
+.footer-verify a{color:#d7e6ff;text-decoration:underline;text-underline-offset:3px}
 @media (max-width: 980px){.flow-grid,.features-grid,.stats-grid{grid-template-columns:1fr 1fr}.split-section{grid-template-columns:1fr;gap:42px}.split-section.reverse{direction:ltr}.flow-card::after{display:none}}
-@media (max-width: 760px){.nav-links,.nav-cta .btn-outline{display:none}.section,.hero,.cta,.split-section{padding-left:20px;padding-right:20px}.flow-grid,.features-grid,.stats-grid{grid-template-columns:1fr}.cta-box{padding:44px 24px}}
+@media (max-width: 760px){.nav-links,.nav-cta .btn-outline{display:none}.section,.hero,.cta,.split-section{padding-left:20px;padding-right:20px}.flow-grid,.features-grid,.stats-grid{grid-template-columns:1fr}.cta-box{padding:44px 24px}.footer-top{grid-template-columns:1fr 1fr;gap:32px}}
 </style>
 </head>
 <body>
@@ -220,28 +227,50 @@ footer{background:#1a1a2e;padding:48px 5% 32px}
 
 <footer>
   <div class="footer-inner">
-    <div class="footer-logo">
-      <div class="footer-logo-icon">
-        <svg viewBox="0 0 24 24" fill="#fff" width="15" height="15"><polygon points="5,3 20,12 5,21"/></svg>
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">
+          <div class="footer-logo-icon">
+            <svg viewBox="0 0 24 24" fill="#1a1a2e" width="14" height="14"><polygon points="5,3 20,12 5,21"/></svg>
+          </div>
+          <div class="footer-logo-copy">
+            <span class="footer-logo-text" style="color:#fff">produ</span>
+            <span class="footer-logo-sub">Gestión de Productoras</span>
+          </div>
+        </div>
+        <p class="footer-desc">Plataforma de gestión para productoras audiovisuales. Centraliza comercial, producción, tesorería, documentos y seguimiento en un solo sistema.</p>
+        <div class="footer-badge-row">
+          <img src="assets/chile-partner.png" alt="Chile partner" />
+          <img src="assets/comparasoftware-verified.svg" alt="ComparaSoftware verificado 2025" />
+        </div>
       </div>
-      <div class="footer-logo-copy">
-        <span class="footer-logo-text" style="color:#fff">produ</span>
-        <span class="footer-logo-sub">Gestión de Productoras</span>
+      <div class="footer-col">
+        <h4>Producto</h4>
+        <a href="producto.html">Producto</a>
+        <a href="soluciones.html">Soluciones</a>
+        <a href="industrias.html">Industrias</a>
+        <a href="casos-de-uso.html">Casos de uso</a>
+        <a href="recursos.html">Recursos</a>
+      </div>
+      <div class="footer-col">
+        <h4>Recursos</h4>
+        <a href="partners.html">Partners</a>
+        <a href="integraciones.html">Integraciones</a>
+        <a href="produ-devs.html">Produ Devs</a>
+        <a href="recursos.html">Biblioteca</a>
+      </div>
+      <div class="footer-col">
+        <h4>Soporte</h4>
+        <a href="agenda-demo.html">Solicitar demo</a>
+        <a href="mailto:hola@produ.cl">hola@produ.cl</a>
+        <a href="tel:+56229380010">+56 2 2938 0010</a>
       </div>
     </div>
-    <div class="footer-links">
-      <a href="index.html">Home</a>
-      <a href="producto.html">Producto</a>
-      <a href="soluciones.html">Soluciones</a>
-      <a href="industrias.html">Industrias</a>
-      <a href="partners.html">Partners</a>
-      <a href="precios.html">Precios</a>
-      <a href="casos-de-uso.html">Casos de uso</a>
-      <a href="recursos.html">Recursos</a>
-    </div>
-    <div class="footer-affiliate">
-      <div class="footer-copy">© 2026 Produ. Operación audiovisual conectada.</div>
-      <img src="/assets/chile-partner.png" alt="Chile partner" />
+    <div class="footer-bottom">
+      <p>© 2026 Produ — Gestión de Productoras. Todos los derechos reservados.</p>
+      <div class="footer-verify">
+        <span><a target="_blank" href="https://www.comparasoftware.cl/produ-app">Produ App</a> se encuentra verificado como <a target="_blank" href="https://www.comparasoftware.cl/saas-solutions">Soluciones SaaS en Chile</a></span>
+      </div>
     </div>
   </div>
 </footer>
