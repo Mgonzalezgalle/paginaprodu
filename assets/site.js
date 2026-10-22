@@ -12,6 +12,19 @@
     });
   }
 
+  const tabs = document.querySelector("[data-tabs]");
+  if (tabs) {
+    const btns = [...tabs.querySelectorAll('[role="tab"]')];
+    const panels = [...document.querySelectorAll(".panel-t")];
+    document.documentElement.classList.add("tabs-js");
+    const select = i => {
+      btns.forEach((b, j) => b.setAttribute("aria-selected", j === i ? "true" : "false"));
+      panels.forEach((p, j) => { p.hidden = j !== i; });
+    };
+    btns.forEach((b, i) => b.addEventListener("click", () => select(i)));
+    select(0);
+  }
+
   const form = document.querySelector("form[data-contact]");
   if (form) {
     const msg = form.querySelector(".msg");
